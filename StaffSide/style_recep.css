@@ -1,0 +1,258 @@
+body { /* FOR THE WHOLE BACKGROUND COLOR */
+    background-color: #001E33;
+  }
+
+p.topheadtext { /* white text at the top  */
+    color: white;
+    text-align: center;
+    font-family: Inter;
+    font-size: 40px;
+    /*border: 3px solid green;*/
+  }
+
+.upwd { /* USERNAME AND PASSWORD INPUTS*/
+    background-color: white;
+    color: #000000;
+    padding-left: 10px;
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 12px;
+    margin: auto;  
+    width: 500px;
+    height: 65px;
+}
+
+.buttonyellowround { /* ROUND YELLOW BUTTON FOR LOGIN BUTT */
+    background-color: #E9D086;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: bold;
+    border-radius: 25px;
+    margin: auto;  
+    width: 300px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.buttonyellow { /* YELLOW BUTTON */
+    background-color: #E9D086;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: bold;
+    border-radius: 12px;
+    margin: auto;  
+    width: 300px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.buttonwhite { /* WHITE BUTTON */
+    background-color: white;
+    color: #001E33;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: bold;
+    border-radius: 12px;
+    margin: auto;  
+    width: 300px;
+    height: 65px;
+    cursor: pointer;
+}
+
+.container_login {  /* MAKE LOGIN BUTT AT THE CENTER */
+    display: grid; 
+    text-align: center;
+}  
+
+.button_center_div { /* MAKE STH ALIGN AT THE CENTER */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.twobutt_width { /* SPACE BETWEEN TWO YELLOW BUTTON */
+    width: 700px;
+}
+
+.searchg { /* SEARCH INPUT */
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 12px;
+    margin-right: 10px;  
+    width: 300px;
+    height: 45px;
+    float: right;
+}
+
+.searchbutt { /* SEARCH ICON BUTTON */
+    color: #000000;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 12px;
+    margin-top: 2px;  
+    width: 45px;
+    height: 45px;
+    float: right;
+}
+
+p.gl_name { /* GUEST NAME FORMAT */
+    color: #001E33;
+    font-family: inter;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+p.gl_info { /* ADULT, CHILDREN, ROOM TYPE FORMAT */
+    color: #001E33;
+    font-family: inter;
+    font-weight: 500;
+}
+
+p.gl_checkinout { /* RIGHTSIDE CHECK IN, OUT FORMAT */
+    color: #001E33;
+    font-family: inter;
+    font-weight: bold;
+    margin-top: 68px;
+}
+
+.row { /* YES A ROW */
+    display: flex;
+    background-color: #95AAB9; 
+    width: 700px; 
+    /* margin-left: 30%; */
+    border-radius: 20px;
+}
+
+.columnleft { /* COLUMN ON THE LEFT */
+    flex: 50%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.columnright { /* COLUMN ON THE RIGHT */
+    flex: 50%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.whiteplusminus { /* WHITE PLUS ICON BUTTON */
+    /* margin-top: 45px; */
+    margin-left: -8px;
+    margin-top: -3px;
+    width: 30px;
+    height: 30px;
+}
+
+p.gl_rightsidepayment { /* CHECK IN, OUT FORMAT */
+    color: #001E33;
+    font-family: inter;
+    font-weight: bold;
+    margin-top:125px;
+}
+
+.buttonyellowconfirm { /* CONFIRM CHECK-IN BUTTON*/
+    background-color: #E9D086;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 12px;  
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.whitecancel { /* WHITE CANCEL BUTTON */
+    background-color: white;
+    color: #001E33;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: bold;
+    border-radius: 50px;
+    margin: auto;  
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.proceedbutt { /* YELLOW PROCEED BUTTON */
+    background-color: #E9D086;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: bold;
+    border-radius: 50px;
+    margin: auto;  
+    width: 300px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.confirmcheckout {
+    background-color: #E9D086;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-bottom: 12px; 
+    width: 250px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.submit-icon {
+    background-image: url("image/plus.png");
+    background-size: cover;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    color: transparent;
+  }
+
+
+
+.whiteplusminus2 { /* WHITE PLUS ICON BUTTON */
+    margin-top: 45px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    color:#E9D086;
+    background-color: #E9D086;
+}
+
+
+.buttimg { /* WHITE PLUS ICON BUTTON */
+    margin-top: 45px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

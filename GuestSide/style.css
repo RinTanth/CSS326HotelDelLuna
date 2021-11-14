@@ -1,0 +1,878 @@
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+html {
+  overflow-x: hidden;
+}
+
+canvas  {
+  z-index: -1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dark_blue: #001E33;
+  --star_yellow: #E9D086;
+  --metal_blue: #95AAB9;
+}
+
+/* BUTTON STYLES AND LAYOUTS FOR DIVS */
+.yellow_button  {
+  background-color: #E9D086;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.container-two-columns  {
+  display: flex;
+  height: 700px;
+}
+
+.two-even-columns  {
+  flex: 50%;
+}
+
+/* END OF BUTTON STYLES AND OTHERS */
+
+
+/* CSS FOR HOME PAGE (MAY BE REUSED FOR OTHER PAGES) */
+/* Navbar style */
+
+.navbar {
+  top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #001E33;
+  width: 100%;
+  height: 80px;
+  z-index: 10;
+
+}
+
+.logo {
+  flex: 1 1 auto;
+  margin-left: 40px;
+  margin-top: 22px;
+  letter-spacing: 0.5px;
+  font-size: 28px;
+  font-family: Cambria;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  z-index: 9;
+}
+
+/* Hamburger menu style */
+.menu-wrap  {
+  position: fixed;
+  top: 10px;
+  right: 25px;
+  z-index: 11;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 12;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+
+  background: #001E33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+  content: '';
+  position: absolute;
+  z-index: 11;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.menu-wrap .hamburger > div:after {
+  top: 10px;
+
+}
+
+/* Toggler animation */
+.menu-wrap .toggler:checked + .hamburger > div  {
+  transform: rotate(135deg);
+}
+
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu-wrap .toggler:checked:hover + .hamburger > div  {
+  transform: rotate(225deg);
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: rgba(24, 39, 51, 0.95);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: white;
+  font-size: 2.0rem;
+  padding: 2rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a  {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 0.75s;
+}
+
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* End of Hamburger menu style */
+
+/* End of Navbar style */
+
+.background-splash  {
+  width: 100%;
+  height: 700px;
+  background-color: black;
+  background-image: url("images/home1.jpg");
+  background-repeat: no-repeat;
+  background-size: 900px;
+  background-position: center;
+  text-align: center;
+}
+
+
+.cover-text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-family: Arial;
+  color: white;
+
+}
+
+.backhome {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-family: Arial;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.backhome > ul > li {
+  display: inline-block;
+  list-style: none;
+  font-size: 2.0rem;
+  margin-right: 10px;
+
+}
+
+.backhome > ul > li > a {
+  color: white;
+  text-decoration: none;
+
+}
+
+
+
+.container-form {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 1.5em;
+  background-color: #95AAB9;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.5);
+  overflow: visible;
+  z-index: 1;
+
+}
+
+.form-block {
+  display: inline-block;
+  flex-flow: row wrap;
+  padding: 15px;
+}
+
+/* when mouse on button (WORK IN PROGRESS) */
+input[type=submit]:hover  {
+
+}
+
+input[type=date]  {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-block > select  {
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+label  {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Arial;
+  color: #001E33;
+}
+
+
+/* Container 1 Style */
+.container-1 {
+  display: flex;
+  height: 700px;
+  z-index: -1;
+}
+
+.column-1-left {
+  flex: 50%;
+  color: white;
+  background-color: #95AAB9;
+  z-index: 0;
+
+}
+
+.column-1-right {
+  flex: 50%;
+  background-color: #95AAB9;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("images/home2.jpg");
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+
+}
+
+.container-heading-1  {
+  font-size: 60px;
+  margin-top: 150px;
+  margin-left: 20%;
+  z-index: -2;
+}
+
+.container-text-1 {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Cambria;
+  margin-left: 20%;
+  margin-right: 10%;
+  margin-top: 30px;
+}
+
+.about-button  {
+  /*inherits properties from yellow button */
+  padding: 16px 60px;
+  margin-left: 20%;
+  margin-top: 50px;
+  z-index: 3
+}
+
+/* End of Container 1 Style */
+
+/* Container 2 Style */
+.container-2-top  {
+  display: flex;
+  height: 150px;
+  background-color: #001E33;
+  justify-content: center;
+
+
+}
+
+.container-heading-2  {
+  font-size: 60px;
+  margin-top: 80px;
+  color: #ffffff;
+}
+
+.container-text-2 {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Cambria;
+  margin-top: 40px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+.container-2-rooms {
+  display: flex;
+  height: 550px;
+  z-index: -1;
+
+}
+
+.column-2-left {
+  flex: 50%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/room1.jpg);
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-color: #001E33;
+  z-index: 0
+}
+
+.column-2-right  {
+  flex: 50%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/room3.jpg);
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-color: #001E33;
+  z-index: 0;
+
+}
+
+
+.room-button {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-content: center;
+  color: white;
+  background-color: transparent;
+  padding: 15px 60px;
+  border-color: white;
+  border-radius: 100px;
+  border-width: 2.5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* End of Container 2 Style */
+
+/* container about*/
+.ABcontainer-1 {
+  display: flex;
+  height: 700px;
+  z-index: -1;
+}
+
+.ABcolumn-1-left {
+  flex: 50%;
+  color: white;
+  background-color: #001E33;
+  z-index: 0;
+
+}
+
+.ABcolumn-1-right {
+  flex: 50%;
+  background-color: #001E33;
+  display: block;
+  padding: 250px 200px;
+  z-index: 0;
+
+}
+
+/* Container Top Footer Style */
+.container-top-footer  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(images/banner.jpg);
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+}
+
+.top-footer-header  {
+  color: white;
+  font-size: 35px;
+}
+
+.top-footer-button  {
+  color: white;
+  background-color: transparent;
+  padding: 15px 40px;
+  border-color: white;
+  border-radius: 100px;
+  border-width: 2.5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.top-footer-block {
+  display: inline-block;
+  padding: 180px;
+}
+/* End of Container Top Footer Style */
+
+/* Container Bottom Footer Style */
+.container-bottom-footer {
+  display: flex;
+  width: 100%;
+  height: 400px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #001E33;
+  padding-top: 50px;
+}
+
+.column-footer-left {
+  flex: 33.33%;
+
+}
+
+.column-footer-center {
+  flex: 33.33%;
+
+
+}
+
+.column-footer-right {
+  flex: 33.33%;
+
+
+}
+
+.footer-option  {
+  color: white;
+  display: block;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 40px;
+  margin-left: 40%;
+  margin-top: 5%;
+
+}
+
+.bottom-footer-block  {
+  margin-top: 5%;
+  margin-left: 12.5%;
+  display: block;
+  line-height: 50px;
+  overflow: visible;
+
+}
+.footer-info-title  {
+  position: relative;
+  top: -5px;
+  left: 10px;
+  font-size: 23px;
+  color: white;
+  font-weight: bold;
+}
+
+.footer-info  {
+  position: relative;
+  left: 40px;
+  display: block;
+  line-height: 20px;
+  font-size: 18px;
+  color: grey;
+}
+
+/* End of Container Bottom Footer Style */
+
+/* END OF CSS STYLES FOR HOME PAGE */
+
+/* CSS STYLES FOR ROOMS AVAILABLE PAGE */
+.container-available-info {
+  position: relative;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 55%;
+  height: 80px;
+  background-color: rgba(0,0,0,0.78);
+  outline: 2px solid var(--dark_blue);
+  text-align: left;
+  border-radius: 5px;
+
+}
+
+.available-heading  {
+  color: white;
+  font-size: 17.5px;
+  font-family: Arial;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.available-info {
+  color: white;
+  margin-left: 10px;
+  font-size: 17.5px;
+  font-family: Arial;
+
+}
+
+/* BELOW IS FOR THE ROOM CARDS */
+
+.container-room-table-info  {
+  display: flex;
+  background-color: var(--metal_blue);
+  width: 100%;
+  height: 500px;
+  justify-content: center;
+  padding-top: 40px;
+
+}
+
+.room-table-info  {
+  display: flex;
+  width: 75%;
+  height: 90%;
+  outline: 2px solid var(--dark_blue);
+
+}
+
+/* END OF CSS STYLES FOR ROOMS AVAILABLE PAGE */
+
+
+.room-card-table  {
+  padding: 3em;
+  position: relative;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-content: center;
+  background-color: var(--dark_blue);
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  text-align: center;
+  place-items: center;
+}
+
+.room-card  {
+  height: 600px;
+  width: 400px;
+  perspective: 1000px;
+  background-color: transparent;
+
+}
+
+.room-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+}
+
+
+.room-card-front  {
+  background-color: var(--metal_blue);
+}
+
+.room-card-back  {
+  background-color: var(--metal_blue);
+  transform: rotateY(180deg);
+}
+
+
+.room-card:hover .room-card-inner {
+  transform: rotateY(180deg);
+}
+
+.room-card-front, .room-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.room-card-back > form > h1{
+  color: var(--dark_blue);
+  margin-top: 100px;
+}
+
+
+.service-info {
+  padding: 1em;
+  margin-left: 32.5%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.service-info > h2{
+  color: var(--dark_blue);
+}
+
+
+.card-heading  {
+  text-align: center;
+  color: var(--dark_blue);
+  font-size: 30px;
+  margin-top: 5%;
+}
+
+
+.card-info  {
+  color: var(--dark_blue);
+  font-family: Cambria;
+  font-size: 20px;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.card-price  {
+  color: white;
+  font-family: Cambria;
+  font-weight: lighter;
+  font-size: 30px;
+  padding: 0.6em;
+  background-color: var(--star_yellow);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+}
+.card-button  {
+  padding: 16px 50px;
+
+}
+
+/* CSS STYLES FOR ROOMS & SUITES PAGE */
+.room-showcase-grid  {
+  padding: 4em;
+  position: relative;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  justify-content: center;
+  background-color: var(--dark_blue);
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  text-align: center;
+  place-items: center;
+}
+
+
+.showcase  {
+  width: 450px;
+}
+
+.showcase-photo {
+  height: 350px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: blue;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.showcase h1 {
+  margin-top: 30px;
+  font-size: 36px;
+  color: var(--star_yellow);
+}
+
+.showcase h2 {
+  margin-top: 10px;
+  font-size: 26px;
+  font-weight: lighter;
+  color: var(--star_yellow);
+}
+
+
+/* END OF CSS STYLES FOR ROOMS & SUITES PAGE */
+
+
+/* CSS STYLES FOR GUEST INFO PAGE */
+.container-guest-form {
+  padding-top: 100px;
+  padding-bottom: 10px;
+  position: relative;
+  display: grid;
+  background-color: #95AAB9;
+  z-index: 1;
+}
+
+.guest-form-label {
+  margin-bottom: 20px;
+  margin-left: 25%;
+	font-size: 36px;
+	color: var(--dark_blue);
+	font-family: Cambria;
+}
+
+.fill-data-block {
+  margin-left: 25%;
+	display: flex;
+	flex-flow: row wrap;
+
+}
+
+
+.fill-data-block > select {
+  padding: 12px;
+  border-radius: 2px;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  font-size: 20px;
+  border: none;
+}
+
+.fill-data-block > input {
+  padding: 12px;
+  margin-right: 1em;
+  border-radius: 2px;
+  margin-bottom: 1em;
+  font-size: 20px;
+  border: none;
+
+}
+
+.button-area  {
+  padding: 2em;
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: var(--dark_blue);
+
+}
+.confirm-book-button  {
+  padding: 20px 50px;
+  font-size: 20px;
+}
+
+.room-type-box  {
+  margin-left: 10%;
+  position: relative;
+  display: flex;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--dark_blue);
+  height: 95%;
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-image  {
+  margin-top: 10px;
+  width: 95%;
+  height: 60%;
+  background-size: auto 100%;
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.room-type-box > h1 {
+  margin-top: 10px;
+  font-family: Cambria;
+  color: var(--dark_blue);
+  font-weight: normal;
+}
+
+.room-type-box > h2 {
+  margin-top: 20px;
+  color: var(--dark_blue);
+  font-family: Cambria;
+  font-weight: normal;
+}
+/* END OF CSS STYLES FOR GUEST INFO PAGE */
