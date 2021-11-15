@@ -108,6 +108,7 @@
             <button class="proceedbutt">Proceed</button>
             <input type="hidden" value="<?php echo $guestid;?>" name="gid_up">
             <input type="hidden" value="<?php echo $roomid;?>" name="rid_up">
+            <input type="hidden" value="<?php echo $bookid;?>" name="bid_up">
         <!-- </a> -->
         </form>
     </div>
