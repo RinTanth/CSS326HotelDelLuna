@@ -4,7 +4,7 @@
 <?php 	require_once('connect.php'); ?>
 <!-- THIS IS FOR //Check_in_1_Recep.php// -->
 
-  
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +32,12 @@
     <!-- GUEST PREFIX, FIRSTNAME, LASTNAME -->
     <!-- AMOUNT OF ADULT, AMOUNT OF CHILDREN -->
     <!-- ROOM TYPE -->
- 
+
 
     <?php
-        $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID
-        FROM guest, booking, roomsbooked, room, roomtype 
-        WHERE roomsbooked.BookingID = booking.BookingID 
+        $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID, room.RoomNo
+        FROM guest, booking, roomsbooked, room, roomtype
+        WHERE roomsbooked.BookingID = booking.BookingID
         AND booking.GuestID = guest.GuestID
         AND roomsbooked.RoomID = room.RoomID
         AND room.TypeID = roomtype.TypeID
@@ -57,9 +57,10 @@
             <div class="columnleft">
                 <p class="gl_name"><?=$row['Prefix']?> <?=$row['Fname']?> <?=$row['Lname']?></p> <!-- GUEST NAME -->
                 <p class="gl_info">Guests: <?=$row['Adults']?> Adults <?=$row['Children']?> Children<br> <!-- GUEST ADULT/CHILDREN -->
-                    <?=$row['Name']?></p> <!-- GUEST ROOM TYPE -->
+                    <?=$row['Name']?><br><!-- GUEST ROOM TYPE -->
+                    Room: <?=$row['RoomNo']?></p> <!-- GUEST ROOM NO -->
             </div>
-    
+
             <div class="columnright">
                 <!-- <a href="Check_in_2_Recep.php"> -->
                 <form action="Check_in_2_Recep.php" method="post">
@@ -79,7 +80,7 @@
             </div>
         </div>
     </div>
-    
+
     <br>
 
     <?php } ?>
