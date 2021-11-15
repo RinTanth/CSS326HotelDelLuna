@@ -1,9 +1,9 @@
-<?php 	
+<?php
     $guestid = $_POST['gid_up'];
     $roomid = $_POST['rid_up'];
-    require_once('connect.php'); 
+    require_once('connect.php');
 
-    // update roomstatus table -> Status = 1 --> room full leaw
+    // update roomstatus table -> Status = 0 --> room free leaw
     $q="SELECT StatusID
     FROM room
     WHERE room.RoomID = $roomid";
@@ -30,7 +30,7 @@
     }
 
 
-    // update roomsbooked table -> Status = 1 --> check in leaw
+    // update roomsbooked table -> Status = 0 --> check out leaw
     $q3="SELECT booking.BookingID
     FROM booking
     WHERE booking.GuestID = $guestid";
@@ -46,7 +46,7 @@
 
     $lastbid = $bid['BookingID'];
 
-  
+
     $q4="UPDATE roomsbooked SET Status = 0
     WHERE BookingID = $lastbid";
 
@@ -55,10 +55,10 @@
     if (!$result2) {
         die('Error here look 45: '.$q4." //// ". $mysqli->error);
     }
-  
+
 
     header("Location: Check_out_1_Recep.php");
 
 
-    
+
 ?>

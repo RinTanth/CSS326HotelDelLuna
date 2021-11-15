@@ -35,7 +35,7 @@
 
 
     <?php
-        $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID, room.RoomNo
+        $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID, room.RoomNo, booking.BookingID
         FROM guest, booking, roomsbooked, room, roomtype
         WHERE roomsbooked.BookingID = booking.BookingID
         AND booking.GuestID = guest.GuestID
@@ -74,7 +74,6 @@
                     <input type="hidden" value="<?php echo $row['Name'];?>" name="rtname">
                     <input type="hidden" value="<?php echo $row['GuestID'];?>" name="guestid">
                     <input type="hidden" value="<?php echo $row['BookingID'];?>" name="bookid">
-
                 </form>
                 <!-- </a> -->
             </div>
