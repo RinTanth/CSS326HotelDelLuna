@@ -55,8 +55,8 @@
             <div class="columnleft">
                 <p class="gl_name"><?=$row['Prefix']?> <?=$row['Fname']?> <?=$row['Lname']?></p> <!-- GUEST NAME -->
                 <p class="gl_info">Guests: <?=$row['Adults']?> Adults <?=$row['Children']?> Children<br> <!-- GUEST ADULT/CHILDREN -->
-                    <?=$row['Name']?></p> <!-- GUEST ROOM TYPE -->
-                <p class="gl_info"> Room: <?=$row['RoomNo']?></p>
+                    <?=$row['Name']?><br> <!-- GUEST ROOM TYPE -->
+                    Room: <?=$row['RoomNo']?></p> <!-- GUEST ROOM NO -->
             </div>
 
             <div class="columnright">
