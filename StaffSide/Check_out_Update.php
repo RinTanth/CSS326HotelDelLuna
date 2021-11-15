@@ -1,6 +1,7 @@
 <?php
     $guestid = $_POST['gid_up'];
     $roomid = $_POST['rid_up'];
+    $bookid = $_POST['bid_up'];
     require_once('connect.php');
 
     // update roomstatus table -> Status = 0 --> room free leaw
@@ -31,24 +32,24 @@
 
 
     // update roomsbooked table -> Status = 0 --> check out leaw
-    $q3="SELECT booking.BookingID
-    FROM booking
-    WHERE booking.GuestID = $guestid";
-
-
-
-    $bookingid = $mysqli -> query($q3);
-    if (!$bookingid) {
-        die('Error here look 34: '.$q3." //// ". $mysqli->error);
-    }
-
-    $bid=$bookingid->fetch_array();
-
-    $lastbid = $bid['BookingID'];
+    // $q3="SELECT booking.BookingID
+    // FROM booking
+    // WHERE booking.GuestID = $guestid";
+    //
+    //
+    //
+    // $bookingid = $mysqli -> query($q3);
+    // if (!$bookingid) {
+    //     die('Error here look 34: '.$q3." //// ". $mysqli->error);
+    // }
+    //
+    // $bid=$bookingid->fetch_array();
+    //
+    // $lastbid = $bid['BookingID'];
 
 
     $q4="UPDATE roomsbooked SET Status = 0
-    WHERE BookingID = $lastbid";
+    WHERE BookingID = $bookid";
 
 
     $result2 = $mysqli -> query($q4);
