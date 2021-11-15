@@ -33,9 +33,9 @@
     <!-- CHECK IN DATE -->
     <!-- CHECK OUT DATE -->
     <?php
-        $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, booking.DateFrom, booking.DateTo, roomtype.Name 
-        FROM guest, booking, roomsbooked, room, roomtype 
-        WHERE roomsbooked.BookingID = booking.BookingID 
+        $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, booking.DateFrom, booking.DateTo, roomtype.Name , room.RoomNo
+        FROM guest, booking, roomsbooked, room, roomtype
+        WHERE roomsbooked.BookingID = booking.BookingID
         AND booking.GuestID = guest.GuestID
         AND roomsbooked.RoomID = room.RoomID
         AND room.TypeID = roomtype.TypeID
@@ -57,8 +57,9 @@
                 <p class="gl_info">Guests: <?=$row['Adults']?> Adults <?=$row['Children']?> Children<br> <!-- GUEST ADULT/CHILDREN -->
                     <?=$row['Name']?></p> <!-- GUEST ROOM TYPE -->
             </div>
-    
+
             <div class="columnright">
+                <p class="gl_info"> Room: <?=$row['RoomNo']?></p>
                 <p class="gl_checkinout">Check-in: <?=$row['DateFrom']?> <br> <!-- GUEST CHECK IN -->
                 Check-out: <?=$row['DateTo']?></p> <!-- GUEST CHECK OUT -->
             </div>
