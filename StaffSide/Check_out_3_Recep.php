@@ -21,8 +21,6 @@
     <p class="topheadtext">Check-out</p>
 
 
-    <input type="image" src="image/search-icon-orange.png"  class="searchbutt" /> <!-- SEARCH ICON -->
-    <input type="text" name="searchguest" placeholder="Search Guest" class="searchg"> <!-- SEARCH BOX -->
 
 
     <br><br><br><br>

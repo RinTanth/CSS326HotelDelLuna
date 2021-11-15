@@ -21,9 +21,6 @@
     <p class="topheadtext">Check-in</p>
 
     
-    <input type="image" src="image/search-icon-orange.png"  class="searchbutt" /> <!-- SEARCH ICON -->
-    <input type="text" name="searchguest" placeholder="Search Guest" class="searchg"> <!-- SEARCH BOX -->
-    
 
     <br><br><br><br>
 
@@ -50,8 +47,8 @@
             // echo "----here----";
 
             $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, roomtype.Price, booking.DateFrom ,booking.DateTo ,payment.Method
-            FROM guest, booking, roomsbooked, room, roomtype, payment 
-            WHERE roomsbooked.BookingID = booking.BookingID 
+            FROM guest, booking, roomsbooked, room, roomtype, payment
+            WHERE roomsbooked.BookingID = booking.BookingID
             AND booking.GuestID = guest.GuestID
             AND roomsbooked.RoomID = room.RoomID
             AND room.TypeID = roomtype.TypeID
@@ -70,15 +67,15 @@
             $DateFrom = strtotime($row['DateFrom']);
             $DateTo = strtotime($row['DateTo']);
 
-            $diff = abs($DateTo - $DateFrom); 
+            $diff = abs($DateTo - $DateFrom);
 
-            $years = floor($diff / (365*60*60*24)); 
-  
+            $years = floor($diff / (365*60*60*24));
+
             $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
 
             $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
 
-            $TotalCost = $row['Price'] * ($days+1); 
+            $TotalCost = $row['Price'] * ($days+1);
 
         }
 
@@ -95,7 +92,7 @@
                     Check-in: <?=$row['DateFrom']?> <br> <!-- GUEST CHECK IN -->
                     Check-out: <?=$row['DateTo']?></p> <!-- GUEST CHECK OUT -->
             </div>
-    
+
             <div class="columnright">
                 <p class="gl_rightsidepayment">Amount Due: $<?=$TotalCost?> <br> <!-- TOTAL COST -->
                     Payment Method: <?=$row['Method']?></p> <!-- PAYMENT METHOD -->
@@ -136,7 +133,7 @@
             <div class="columnleft">
                 <p class="gl_name">Room number: <?=$row2['RoomNo']?></p>
             </div>
-            
+
             <div class="columnright">
                 <form action="Check_in_3_Recep.php" method="post">
                 <!-- <a href="Check_in_3_Recep.php"> -->
@@ -162,7 +159,7 @@
             <button class="whitecancel">Cancel</button>
         </a>
     </div>
-    
+
 
 </body>
 </html>
