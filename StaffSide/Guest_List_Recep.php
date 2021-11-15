@@ -56,10 +56,11 @@
                 <p class="gl_name"><?=$row['Prefix']?> <?=$row['Fname']?> <?=$row['Lname']?></p> <!-- GUEST NAME -->
                 <p class="gl_info">Guests: <?=$row['Adults']?> Adults <?=$row['Children']?> Children<br> <!-- GUEST ADULT/CHILDREN -->
                     <?=$row['Name']?></p> <!-- GUEST ROOM TYPE -->
+                <p class="gl_info"> Room: <?=$row['RoomNo']?></p>
             </div>
 
             <div class="columnright">
-                <p class="gl_info"> Room: <?=$row['RoomNo']?></p>
+
                 <p class="gl_checkinout">Check-in: <?=$row['DateFrom']?> <br> <!-- GUEST CHECK IN -->
                 Check-out: <?=$row['DateTo']?></p> <!-- GUEST CHECK OUT -->
             </div>
