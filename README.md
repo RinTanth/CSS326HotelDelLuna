@@ -1,2 +1,2 @@
-# CSS326HotelDelLuna
+# Moon Hotel
 Hotel Del Luna website project
