@@ -40,7 +40,7 @@ $hotelcountry = $row['Country'];
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>CinnaTel | Booking information</title>
+      <title>HotelDelLuna | Booking information</title>
       <link rel="stylesheet" href="style.css">
   </head>
 
@@ -61,7 +61,7 @@ $hotelcountry = $row['Country'];
                 <div>
                   <ul>
                     <li><a href='index.html'>Home</a></li>
-                    <li><a href='hotels.html'>Find a hotel</a></li>
+                    <!-- <li><a href='hotels.html'>Find a hotel</a></li> -->
                     <li><a href='book_room.html'>Book a room</a></li>
                     <li><a href='about.html'>About us</a></li>
                   </ul>
@@ -111,7 +111,7 @@ $hotelcountry = $row['Country'];
       <div class="container-bottom-footer">
         <div class="footer-section">
           <a href="about.html">About us</a>
-          <a href="hotels.html">Find a hotel</a>
+          <!-- <a href="hotels.html">Find a hotel</a> -->
           <a href="book_room.html">Book a room</a>
         </div>
 
@@ -119,13 +119,13 @@ $hotelcountry = $row['Country'];
           <div class="footer-information">
             <i style="font-size:25px;color:white;" class='fas fa-map-marker-alt'></i>
             <h1 style="margin-top: 17px; margin-left: 5px;">Main Headquarters</h1>
-            <h2>3/325 Final Road, Cinnamon Islands</h2>
+            <h2>28-5 Donhwamun-ro 11-gil, Jongno-gu</h2>
           </div>
 
           <div class="footer-information">
             <i style="font-size:25px;color:white;" class='fas fa-envelope-open'></i>
             <h1 style="margin-top: 17px">Email</h1>
-            <h2>support@cinnatel.org</h2>
+            <h2>support@lunadelhotel.org</h2>
           </div>
 
         </div>
