@@ -49,7 +49,7 @@ $hotelcountry = $row['Country'];
       <div class="navbar">
         <!-- Top left icon -->
         <a href="index.html" style="text-decoration: none;">
-          <h1 class="logo">Cinnamon Hotels & Resorts</h1>
+          <h1 class="logo">Hotel Del Luna</h1>
         </a>
 
         <!-- Top right hamburger menu -->
