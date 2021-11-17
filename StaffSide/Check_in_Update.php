@@ -15,6 +15,8 @@
         die('Error here look 13: '.$q." //// ". $mysqli->error);
     }
 
+
+    
     $sid=$statusid->fetch_array();
 
     $lastsid = $sid['StatusID'];
