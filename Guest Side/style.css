@@ -18,7 +18,7 @@ canvas  {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: lighter;
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 
 }
 
@@ -31,11 +31,20 @@ h2 {
 }
 
 :root {
-  --cream: #FAE9CF;
+  /* --cream: #FAE9CF;
   --light_brown: #CDA67A;
   --brown: #986544;
   --dark_coffee_brown: #6A462F;
+  --dark_oak_brown: #4A3120; */
+  --cream: #7d9aad;
+  --light_brown: #CDA67A;
+  --brown: #986544;
+
   --dark_oak_brown: #4A3120;
+
+  --dark_blue: #001E33;
+  --star_yellow: #E9D086;
+  --metal_blue: #95AAB9;
 }
 
 
@@ -107,7 +116,7 @@ h2 {
 }
 
 .hover-button-alt:hover  {
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 }
 
 .hover-button-alt:hover::after  {
@@ -125,7 +134,7 @@ h2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: #001E33;
   width: 100%;
   height: 80px;
   z-index: 10;
@@ -140,7 +149,7 @@ h2 {
   font-size: 28px;
   font-family: Cambria;
   font-weight: bold;
-  color: var(--dark_coffee_brown);
+  color: var(--star_yellow);
   text-decoration: none;
   z-index: 9;
 }
@@ -174,7 +183,7 @@ h2 {
   height: 60px;
   padding: 1rem;
 
-  background: white;
+  background: #001E33;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -184,7 +193,7 @@ h2 {
   position: relative;
   width: 100%;
   height: 2px;
-  background-color: var(--dark_coffee_brown);
+  background-color: var(--star_yellow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,7 +245,7 @@ h2 {
 }
 
 .menu-wrap .menu > div {
-  background: rgba(152, 101, 68, 0.95);
+  background: rgba(24, 39, 51, 0.95);
   border-radius: 50%;
   width: 200vw;
   height: 200vw;
@@ -293,7 +302,7 @@ h2 {
   grid-template: 1fr 1fr 1fr;
   table-layout: fixed;
   width: 100%;
-  background-color: var(--dark_oak_brown);
+  background-color: var(--dark_blue);
 }
 
 .footer-section  {
@@ -388,6 +397,7 @@ h2 {
   padding-top: 6em;
   padding-bottom: 6em;
   width: 100%;
+  background-color: #bacedb;
 }
 
 .even-column  {
@@ -452,12 +462,12 @@ h2 {
 .country-container > h1 {
   font-size: 40px;
   font-weight: 400;
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 }
 
 .country-hotels > a {
   text-decoration: none;
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
   font-size: 25px;
   padding-right: 40px;
   font-weight: 300;
@@ -567,7 +577,7 @@ h2 {
 }
 
 .room-form-left > h2 > span {
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 }
 
 .room-form-right > form > h1 {
@@ -596,7 +606,7 @@ h2 {
 }
 
 .room-container-right > h2 > span {
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 }
 
 
@@ -671,7 +681,7 @@ h2 {
   display: grid;
   grid-row-gap: 1em;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  background-color: var(--dark_oak_brown);
+  background-color: var(--dark_blue);
 }
 
 .hotel-info-section {
