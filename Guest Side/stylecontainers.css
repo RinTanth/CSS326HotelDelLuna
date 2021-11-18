@@ -90,10 +90,38 @@
   }
 }
 
-/* END OF Two Column Container (Responsive) */
+/* END OF Two Column Container */
+.container-top-footer {
+  width: 100%;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  text-align: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
+}
 
-/* START OF Top Footer Container (Responsive) */
+.container-top-footer > h1 {
+  position: relative;
+  display: inline-block;
+  margin-right: 40%;
+  top: 35%;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 35px;
+
+}
+
+.container-top-footer > a {
+  top: 35%;
+  position: relative;
+  font-size: 20px;
+
+}
+
+/* START OF Top Footer Container */
 
 
 /* END OF Top Footer Container (Responsive) */
