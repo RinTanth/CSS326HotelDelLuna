@@ -94,7 +94,7 @@ $TotalCost = $price * ($days);
 
       <div style="text-align: center; padding: 2em;">
         <h1 style="font-weight: normal; color: white;">You will receive an email on your booking shortly</h1>
-        <button onclick="location.href='index.html'" class="button-norm button-yellow" style="z-index: 1; margin-top: 1.25em; margin-right: 10px; font-size: 18px;">Proceed</button>
+        <button onclick="location.href='index.html'" class="button-norm button-yellow" style="z-index: 1; padding: 0.7em 3em 0.7em 3em; margin-top: 1.25em; margin-right: 10px; font-size: 20px;">Proceed</button>
       </div>
 
 
