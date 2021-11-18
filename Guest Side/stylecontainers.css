@@ -265,6 +265,18 @@
   border: none;
 }
 
+div#bankmethod > label {
+  font-size: 18px;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 2.5px;
+  background: white;
+}
+
+input#bankslip {
+  display: none;
+}
+
 .room-container-right > h2 > span {
   color: var(--dark_blue);
 }

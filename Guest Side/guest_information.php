@@ -375,7 +375,7 @@ $TotalCost = $price * ($days);
 
 
                 <h1 style="padding-top: 1.2em; font-weight: bold;">Payment information</h1>
-                <select onchange="yesnoCheck(this);" id="method" name="method" >
+                <select onchange="paymentMethodCheck(this);" id="method" name="method" >
                   <option>-</option>
                   <option value="Credit Card">Credit Card</option>
                   <option value="Bank Transfer">Bank Transfer</option>
@@ -386,11 +386,17 @@ $TotalCost = $price * ($days);
 
 
 
-                <div id="paymethod" style="display: none;">
+                <div id="creditmethod" style="display: none;">
                   <input type="text" id="Ricardo" name="cardnum" placeholder="Card number">
                   <input type="text" id="exp" name="exp" placeholder="Expiration date (MM/YY)">
                   <input type="text" id="CV" name="CV" placeholder="CV2">
                 </div>
+
+                <div id="bankmethod" style="display: none; margin-top: 20px;">
+                  <label for="bankslip"><i class="fas fa-upload" style="margin-top: 10px; margin-bottom: 10px; color: var(--dark_blue); margin-right: 10px;"></i>Upload Bank Slip<label>
+                  <input type="file" id="bankslip">
+                </div>
+
 
 
                   <input type="hidden" name="typeid" value="<?php echo $typeid;?>">
