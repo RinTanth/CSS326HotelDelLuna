@@ -51,6 +51,7 @@ $TotalCost = $price * ($days);
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="stylecontainers.css">
       <link rel="stylesheet" href="stylecomponents.css">
+      <script src="script.js"></script>
   </head>
 
   <body>
@@ -371,16 +372,7 @@ $TotalCost = $price * ($days);
           				<option value="Zimbabwe">Zimbabwe</option>
                 </select>
 
-                <script>
-                  function yesnoCheck(that) {
-                      if (that.value == "Credit Card") {
-                          alert("check");
-                          document.getElementById("paymethod").style.display = "block";
-                      } else {
-                          document.getElementById("paymethod").style.display = "none";
-                      }
-                  }
-                </script>
+
 
                 <h1 style="padding-top: 1.2em; font-weight: bold;">Payment information</h1>
                 <select onchange="yesnoCheck(this);" id="method" name="method" >
