@@ -1,48 +1,61 @@
 <?php
     $guestid = $_POST['guestid'];
-    $hotelid = $_POST['hotelid'];
     $bookid = $_POST['bookid'];
     $roomid = $_POST['roomid'];
     require_once('connect.php');
-    echo "---check_in_update php desuyo---";
-    // update room.Status to 0 --> room availiable
 
-    $q="UPDATE room SET Status = 0
-    WHERE RoomID = $roomid";
+    // update roomstatus table -> Status = 0 --> room free leaw
+    $q="SELECT StatusID
+    FROM room
+    WHERE room.RoomID = $roomid";
 
-    $result = $mysqli -> query($q);
+
+    $statusid = $mysqli -> query($q);
+    if (!$statusid) {
+        die('Error here look 13: '.$q." //// ". $mysqli->error);
+    }
+
+    $sid=$statusid->fetch_array();
+
+    $lastsid = $sid['StatusID'];
+
+
+    $q1="UPDATE roomstatus SET Status = 0
+    WHERE StatusID = $lastsid";
+
+
+
+    $result = $mysqli -> query($q1);
     if (!$result) {
-        die('Error look at q : '.$q." //// ". $mysqli->error);
+        die('Error here look 24: '.$q1." //// ". $mysqli->error);
     }
-    echo "<br>";
-    echo "--room.Status updated--";
 
 
-    // update roomsbooked.room to NULL--> room availiable
-    $q1="UPDATE roomsbooked SET RoomID = NULL
+    // update roomsbooked table -> Status = 0 --> check out leaw
+    // $q3="SELECT booking.BookingID
+    // FROM booking
+    // WHERE booking.GuestID = $guestid";
+    //
+    //
+    //
+    // $bookingid = $mysqli -> query($q3);
+    // if (!$bookingid) {
+    //     die('Error here look 34: '.$q3." //// ". $mysqli->error);
+    // }
+    //
+    // $bid=$bookingid->fetch_array();
+    //
+    // $lastbid = $bid['BookingID'];
+
+
+    $q2="UPDATE roomsbooked SET Status = 0, RoomID = NULL
     WHERE BookingID = $bookid";
-    $result1 = $mysqli -> query($q1);
-    if (!$result1) {
-        die('Error look at q1 : '.$q1." //// ". $mysqli->error);
-    }
-    echo "<br>";
-    echo "--roomsbooked.RoomID updated--";
 
-
-    // update roomsbooked.Status to 0 --> check out leaw (REPLACE THIS WITH DELETE SOON)
-
-    $q2="UPDATE roomsbooked SET Status = 0
-    WHERE BookingID = $bookid";
 
     $result2 = $mysqli -> query($q2);
     if (!$result2) {
-        die('Error look at q2 : '.$q2." //// ". $mysqli->error);
+        die('Error here look 45: '.$q2." //// ". $mysqli->error);
     }
-
-    echo "<br>";
-    echo "--roomsbooked.Status updated--";
-
-    header("Location: receptionist_home.php");
 
 
     // START OF delete the booking, payment, guest, roomsbooked
@@ -84,5 +97,10 @@
     if (!$result7) {
         die('Error look at q7 : '.$q7." //// ". $mysqli->error);
     }
+
+    echo "<br>";
+    echo "--roomsbooked.Status updated--";
+
+    header("Location: receptionist_home.php");
 
 ?>
