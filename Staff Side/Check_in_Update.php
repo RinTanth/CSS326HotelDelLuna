@@ -1,51 +1,50 @@
 <?php
-    $guestid = $_POST['gid_up'];
-    $roomid = $_POST['rid_up'];
-    $bookid = $_POST['bid_up'];
+    $guestid = $_POST['guestid'];
+    $hotelid = $_POST['hotelid'];
+    $bookid = $_POST['bookid'];
+    $roomid = $_POST['roomid'];
     require_once('connect.php');
+    echo "---check_in_update php desuyo---";
+    // update room.Status to 1 --> room not availiable
 
-    // update roomstatus table -> Status = 1 --> room full leaw
-    $q="SELECT StatusID
-    FROM room
-    WHERE room.RoomID = $roomid";
+    $q="UPDATE room SET Status = 1
+    WHERE RoomID = $roomid";
 
-
-    $statusid = $mysqli -> query($q);
-    if (!$statusid) {
-        die('Error here look 13: '.$q." //// ". $mysqli->error);
-    }
-
-
-    $sid=$statusid->fetch_array();
-    $lastsid = $sid['StatusID'];
-
-
-    $q2="UPDATE roomstatus SET Status = 1
-    WHERE StatusID = $lastsid";
-
-
-
-    $result = $mysqli -> query($q2);
+    $result = $mysqli -> query($q);
     if (!$result) {
-        die('Error here look 24: '.$q2." //// ". $mysqli->error);
+        die('Error look at q : '.$q." //// ". $mysqli->error);
     }
+    echo "<br>";
+    echo "--room.Status updated--";
 
 
-    // update roomsbooked table -> Status = 1 --> check in leaw
+    // update roomsbooked.RoomID to 1 --> assign the room to the guest
 
-    $q4="UPDATE roomsbooked SET Status = 1, RoomID = '$roomid'
+    $q1="UPDATE roomsbooked SET RoomID = $roomid
     WHERE BookingID = $bookid";
 
+    $result1 = $mysqli -> query($q1);
+    if (!$result1) {
+        die('Error look at q : '.$q1." //// ". $mysqli->error);
+    }
+    echo "<br>";
+    echo "--roomsbooked.RoomID updated--";
 
-    $result2 = $mysqli -> query($q4);
+
+    // update roomsbooked.Status to 1 --> check in leaw
+
+    $q2="UPDATE roomsbooked SET Status = 1
+    WHERE BookingID = $bookid";
+
+    $result2 = $mysqli -> query($q2);
     if (!$result2) {
-        die('Error here look 45: '.$q4." //// ". $mysqli->error);
+        die('Error look at q : '.$q2." //// ". $mysqli->error);
     }
 
+    echo "<br>";
+    echo "--roomsbooked.Status updated--";
 
-    header("Location: Home_Recep.html");
-
-
+    header("Location: receptionist_home.php");
 
 
 ?>
