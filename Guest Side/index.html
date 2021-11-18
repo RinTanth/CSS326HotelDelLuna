@@ -8,10 +8,13 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+      <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet"> -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>HotelDelLuna | Home</title>
+      <title>Hotel Del Luna | Home</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="stylecomponents.css">
+      <link rel="stylesheet" href="stylecontainers.css">
   </head>
 
   <body>
@@ -53,26 +56,33 @@
 
     <!-- First container -->
       <div class="two-columns-container">
-        <div class="even-column">
-          <div class="image-column" style="background-image: url(images/home1.jpg)">
+        <div class="even-column even-column-config-1">
+          <h1>Welcome!</h1>
+          <p>There are a million stars in the sky, but our eyes always falls on the moon first.
+          <br><br>Just like there are a billion people in this world but our eyes only fall for one and only “you”.</p>
+          <div style="margin-left: 15%; margin-top: 3em;">
+            <a href="about.html" class="button button-yellow">Learn more</a>
           </div>
         </div>
 
         <div class="even-column">
-          <h1>Welcome!</h1>
-          <p>There are a million stars in the sky, but our eyes always falls on the moon first.</p>
-          <p>Just like there are a billion people in this world but our eyes only fall for one and only “you”.</p>
-          <div style="margin-left: 3.8em; margin-top: 3em;">
-            <a href="about.html" class=hover-button>Learn more</a>
-          </div>
-
+          <div class="image-column" style="background-image: url(images/home1.jpg)"></div>
         </div>
       </div>
     <!-- End of First container -->
 
     <!-- Second container -->
-      <div class="plain-container" style="background-color: var(--cream);">
-        <h1></h1>
+      <div class="plain-container" style="background-color: var(--dark_blue)">
+        <h1 class="heading-font">Rooms and Suites</h1>
+        <div class="two-columns-container" style="background-color: var(--cream);">
+          <div class="even-column">
+            <h1>HELLOW AGAIn</h1>
+          </div>
+
+          <div class="even-column">
+            <h1>HELLOW WORLD</h1>
+          </div>
+        </div>
       </div>
     <!-- End of Second container -->
 
@@ -80,8 +90,8 @@
     <div class="container-bottom-footer">
       <div class="footer-section">
         <a href="about.html">About us</a>
-        <!-- <a href="hotels.html">Find a hotel</a> -->
         <a href="book_room.html">Book a room</a>
+        <a href="services.html">Services</a>
       </div>
 
       <div class="footer-section">

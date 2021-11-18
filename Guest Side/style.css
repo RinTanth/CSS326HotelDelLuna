@@ -17,13 +17,20 @@ canvas  {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  font-weight: lighter;
+  font-weight: normal;
   color: var(--dark_blue);
 
 }
 
 h1 {
   font-size: 28px;
+}
+
+.heading-font {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  margin: auto;
 }
 
 h2 {
@@ -39,90 +46,11 @@ h2 {
   --cream: #7d9aad;
   --light_brown: #CDA67A;
   --brown: #986544;
-
   --dark_oak_brown: #4A3120;
-
   --dark_blue: #001E33;
   --star_yellow: #E9D086;
   --metal_blue: #95AAB9;
 }
-
-
-/* Components (Buttons and etc) */
-.hover-button  {
-  font-size: 1.3rem;
-  padding: 10px 30px;
-  border: var(--brown) solid 2px;
-  color: var(--brown);
-  background: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  transition: .4s;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.hover-button::after  {
-  content: '';
-  width: 0%;
-  height: 100%;
-  position: absolute;
-  background: var(--brown);
-  left: 0;
-  top: 0;
-  z-index: -1;
-  transition: .4s;
-  overflow: hidden;
-}
-
-.hover-button:hover  {
-  color: white;
-}
-
-.hover-button:hover::after  {
-  width: 100%;
-}
-
-
-/*ALTERATIVE HOVER BUTTON STYLE */
-.hover-button-alt  {
-  font-size: 1.3rem;
-  padding: 10px 30px;
-  border: white solid 2px;
-  color: white;
-  background: none;
-  font-weight: bold;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  transition: .4s;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.hover-button-alt::after  {
-  content: '';
-  width: 0%;
-  height: 100%;
-  position: absolute;
-  background: white;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  transition: .4s;
-  overflow: hidden;
-}
-
-.hover-button-alt:hover  {
-  color: var(--dark_blue);
-}
-
-.hover-button-alt:hover::after  {
-  width: 100%;
-}
-
 
 
 /* CSS FOR HOME PAGE (MAY BE REUSED FOR OTHER PAGES) */
@@ -360,8 +288,9 @@ h2 {
   margin-top: 80px;
   height: 800px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-color: black;
   text-align: center;
 
 }
@@ -390,54 +319,6 @@ h2 {
  /*WIP*/
 }
 
-
-.two-columns-container  {
-  display: flex;
-  flex-direction: row;
-  padding-top: 6em;
-  padding-bottom: 6em;
-  width: 100%;
-  background-color: #bacedb;
-}
-
-.even-column  {
-  flex: 50%;
-}
-
-.image-column  {
-  margin-left: 40%;
-  height: 600px;
-  max-width: 550px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-@media (max-width: 800px) {
-  .two-columns-container {
-    flex-direction: column;
-  }
-  .image-column {
-    margin-left: 0;
-    justify-content: center;
-  }
-}
-
-
-
-.even-column > h1 {
-  padding-left: 1.5em;
-  font-size: 40px;
-  font-weight: normal;
-}
-
-.even-column > p {
-  margin-right: 55%;
-  padding-top: 1em;
-  padding-left: 2.9em;
-  font-size: 22px;
-  font-weight: normal;
-}
 
 
 /* End of Large Containers */
