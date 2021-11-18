@@ -48,7 +48,7 @@
     // $lastbid = $bid['BookingID'];
 
 
-    $q4="UPDATE roomsbooked SET Status = 0
+    $q4="UPDATE roomsbooked SET Status = 0, RoomID = NULL
     WHERE BookingID = $bookid";
 
 
@@ -58,7 +58,7 @@
     }
 
 
-    header("Location: Check_out_1_Recep.php");
+    header("Location: Home_Recep.html");
 
 
 

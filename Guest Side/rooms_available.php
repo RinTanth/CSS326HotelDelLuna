@@ -92,15 +92,16 @@ if (isset($_POST['submit']))    {
         <?php while($row=$result->fetch_array())  {
           $typeid = $row['TypeID'];
           //used to check if the room type is available or not
-          $q1 = "SELECT roomtype.TypeID, roomtype.Name, roomtype.Description, roomtype.Price, roomtype.Spa,
-          roomtype.Sauna, roomtype.Fitness, roomtype.Lounge, roomtype.ImageLink,
+          $q1 = "SELECT roomtype.TypeID, roomtype.Name, roomtype.Description, roomtype.Price, services.Spa,
+          services.Sauna, services.Fitness, services.Lounge, roomtype.ImageLink,
           (SELECT COUNT(booking.BookingID)
                 FROM roomsbooked, booking WHERE roomsbooked.BookingID = booking.BookingID
                 AND booking.DateFrom <= '$checkout'
                 AND booking.DateTo >= '$checkin' AND roomsbooked.TypeID = '$typeid') AS TypeIDCountReserved,
           (SELECT COUNT(RoomID) FROM room WHERE TypeID = '$typeid') AS TypeIDRoomTotal
-                FROM roomtype
-                WHERE roomtype.TypeID = '$typeid'";
+                FROM roomtype, services
+                WHERE roomtype.ServiceID = services.ServiceID
+                AND roomtype.TypeID = '$typeid'";
 
           $result1 = $mysqli -> query($q1);
           $row1=$result1->fetch_array();
@@ -112,8 +113,8 @@ if (isset($_POST['submit']))    {
           </div>
 
           <div class="room-container-right">
-            <h1 style="font-weight: normal;"><?php echo $row1['Name'];?> Room</h1>  <!-- Name of room type-->
-            <h2 style="font-weight: normal;">$<?php echo $row1['Price']?> per night</h2> <!-- Price of room type-->
+            <h1><?php echo $row1['Name'];?> Room</h1>  <!-- Name of room type-->
+            <h2>$<?php echo $row1['Price']?> per night</h2> <!-- Price of room type-->
 
             <p> <!-- Description of room type -->
               <?php echo $row1['Description'];?>
@@ -161,12 +162,6 @@ if (isset($_POST['submit']))    {
               <div class="button-box">
                 <button type="submit" name="submit" class="button-norm button-yellow" style="z-index: 1; margin-top: 1.25em; font-size: 18px;">Book now</button>
               </div>
-
-
-
-
-
-
 
             </form>
 

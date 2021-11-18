@@ -20,7 +20,7 @@
 <body>
     <p class="topheadtext">Check-in</p>
 
-    
+
 
     <br><br><br><br>
 
@@ -47,11 +47,9 @@
             // echo "----here----";
 
             $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, roomtype.Price, booking.DateFrom ,booking.DateTo ,payment.Method
-            FROM guest, booking, roomsbooked, room, roomtype, payment
+            FROM guest, booking, roomsbooked, roomtype, payment
             WHERE roomsbooked.BookingID = booking.BookingID
             AND booking.GuestID = guest.GuestID
-            AND roomsbooked.RoomID = room.RoomID
-            AND room.TypeID = roomtype.TypeID
             AND payment.PaymentID = booking.PaymentID
             AND guest.guestID = '$guestid'
             AND booking.BookingID = '$bookid'";

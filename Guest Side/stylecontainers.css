@@ -183,15 +183,15 @@
   flex-wrap: wrap;
   margin: auto;
   width: 65%;
-  border: white solid 2px;
+  border: white var(--metal_blue) 2px;
   margin-bottom: 1em;
-  background-color: white;
+  background-color: var(--metal_blue);
   border-radius: 10px;
-  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.3);
 }
 
 .room-container-right > h1 {
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .room-container-right > h2 {
@@ -228,7 +228,7 @@
 }
 
 .service-icon-container > i, span {
-  color: var(--star_yellow);
+  color: var(--dark_blue);
   font-size: 22px;
 
 }
@@ -246,6 +246,7 @@
   margin-top: 20px;
   padding: 10px 30px;
   font-size: 20px;
+  border: none;
 }
 
 .room-form-right > form > input {
@@ -253,6 +254,7 @@
   margin-top: 20px;
   padding: 10px 30px;
   font-size: 20px;
+  border: none;
 }
 
 .room-form-right > form > div > input {
@@ -260,6 +262,7 @@
   margin-top: 20px;
   padding: 10px 30px;
   font-size: 20px;
+  border: none;
 }
 
 .room-container-right > h2 > span {

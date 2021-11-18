@@ -4,7 +4,6 @@ require_once('connect.php');
 
 if (isset($_POST['submit']))  {
   //Booking and Room Type information SESSION from guest_information.php
-  $_SESSION['hotelid'] = $_POST['hotelid'];
   $_SESSION['typeid'] = $_POST['typeid'];
   $_SESSION['checkin'] = $_POST['checkin'];
   $_SESSION['checkout'] = $_POST['checkout'];
@@ -27,7 +26,6 @@ if (isset($_POST['submit']))  {
 
 }
 
-$hotelid = $_SESSION['hotelid'];
 $typeid = $_SESSION['typeid'];
 $checkin = $_SESSION['checkin'];
 $checkout = $_SESSION['checkout'];
@@ -59,7 +57,7 @@ else {
 // ----------------------------------------------------------------------------------galgal part---------------------------------------------------------------------
 
 // insert data to guest table
-$q1="INSERT INTO guest(Fname, Lname, Prefix, Phone, Email, Country)
+$q1="INSERT INTO guest(Fname, Lname, Prefix, Telephone, Email, Country)
 VALUES ('$fname','$lname','$prefix','$phonenum','$email','$country')";
 
 $result1 = $mysqli -> query($q1);
@@ -103,8 +101,8 @@ $pid = $fetchpid['PaymentID']; // use this as PaymentID
 
 
 // insert data to booking table
-$q5="INSERT INTO booking(HotelID, GuestID, PaymentID, DateFrom, DateTo, Adults, Children, ReserveDate, DiscountCode)
-VALUES ('$hotelid', '$gid', '$pid', '$checkin', '$checkout', '$adults', '$children', CURRENT_TIMESTAMP, 'LIKEASOMEBODY')";
+$q5="INSERT INTO booking(GuestID, PaymentID, DateFrom, DateTo, Adults, Children, ReserveDate, DiscountCode)
+VALUES ('$gid', '$pid', '$checkin', '$checkout', '$adults', '$children', CURRENT_TIMESTAMP, 'LIKEASOMEBODY')";
 
 $result5 = $mysqli -> query($q5);
 if(!$result5) {

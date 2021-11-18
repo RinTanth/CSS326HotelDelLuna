@@ -4,7 +4,6 @@ session_start();
 require_once('connect.php');
 
 
-$hotelid = $_SESSION['hotelid'];
 $price = $_SESSION['price'];
 
 $DateFrom = strtotime($_SESSION['checkin']);
@@ -15,16 +14,7 @@ $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
 $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
 $TotalCost = $price * ($days);
 
-$qhotel = "SELECT Name, Country FROM hotel WHERE HotelID = $hotelid";
 
-$result = $mysqli -> query($qhotel);
-if(!$result) {
-  die('Error here look at q: '.$qhotel." //// ". $mysqli->error);
-}
-
-$row = $result -> fetch_array();
-$hotelname = $row['Name'];
-$hotelcountry = $row['Country'];
 
 
 
@@ -42,6 +32,8 @@ $hotelcountry = $row['Country'];
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>HotelDelLuna | Booking information</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="stylecomponents.css">
+      <link rel="stylesheet" href="stylecontainers.css">
   </head>
 
   <body>
@@ -61,9 +53,10 @@ $hotelcountry = $row['Country'];
                 <div>
                   <ul>
                     <li><a href='index.html'>Home</a></li>
-                    <!-- <li><a href='hotels.html'>Find a hotel</a></li> -->
-                    <li><a href='book_room.html'>Book a room</a></li>
                     <li><a href='about.html'>About us</a></li>
+                    <li><a href='book_room.html'>Book a room</a></li>
+                    <li><a href='rooms.php'>Rooms and Suites</a></li>
+                    <li><a href='services.html'>Services</a></li>
                   </ul>
                 </div>
               </div>
@@ -89,7 +82,6 @@ $hotelcountry = $row['Country'];
               <h2>Email: <span><?php echo $_SESSION['email'];?></span></h2>
               <h2>Phone: <span><?php echo $_SESSION['phonenum'];?></span></h2>
 
-              <h1 style="padding-top: 1em;"><?php echo $hotelname;?>, <?php echo $hotelcountry;?></h1>
               <h2 style="font-size: 25px; padding-bottom: 0.6em;"><?php echo $_SESSION['roomname'];?> Room</h1>  <!-- Name of room type-->
               <h2>Guests: <span><?php echo $_SESSION['adults'];?> Adults, <?php echo $_SESSION['children'];?> Children</span></h2>
               <h2>Check-in: <span><?php echo $_SESSION['checkin'];?></span></h2>
@@ -101,8 +93,8 @@ $hotelcountry = $row['Country'];
 
 
       <div style="text-align: center; padding: 2em;">
-        <h1 style="font-weight: normal">You will receive an email on your booking shortly</h1>
-        <button onclick="location.href='index.html'" class="hover-button" style="z-index: 1; margin-top: 1.25em; margin-right: 10px;">Proceed</button>
+        <h1 style="font-weight: normal; color: white;">You will receive an email on your booking shortly</h1>
+        <button onclick="location.href='index.html'" class="button-norm button-yellow" style="z-index: 1; margin-top: 1.25em; margin-right: 10px; font-size: 18px;">Proceed</button>
       </div>
 
 
@@ -111,19 +103,20 @@ $hotelcountry = $row['Country'];
       <div class="container-bottom-footer">
         <div class="footer-section">
           <a href="about.html">About us</a>
-          <!-- <a href="hotels.html">Find a hotel</a> -->
           <a href="book_room.html">Book a room</a>
+          <a href="rooms.php">Rooms and Suites</a>
+          <a href="services.html">Services</a>
         </div>
 
         <div class="footer-section">
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-map-marker-alt'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-map-marker-alt'></i>
             <h1 style="margin-top: 17px; margin-left: 5px;">Main Headquarters</h1>
             <h2>28-5 Donhwamun-ro 11-gil, Jongno-gu</h2>
           </div>
 
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-envelope-open'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-envelope-open'></i>
             <h1 style="margin-top: 17px">Email</h1>
             <h2>support@lunadelhotel.org</h2>
           </div>
@@ -132,7 +125,7 @@ $hotelcountry = $row['Country'];
 
         <div class="footer-section">
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-phone'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-phone'></i>
             <h1 style="margin-top: 17px">Phone</h1>
             <h2>02-420-6969</h2>
           </div>

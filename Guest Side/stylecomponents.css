@@ -71,7 +71,7 @@
 
 
 /* This button is for the button tag */
-.button-norm, .button-norm:visited {
+.button-norm {
     font-weight: bold;
     letter-spacing: 1px;
     text-decoration: none;
@@ -80,16 +80,7 @@
     border-radius: 100px;
     transition: all .2s;
     border: none;
-}
-
-.button-norm:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.button-norm:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .button-white {
@@ -100,44 +91,6 @@
 .button-yellow {
     background-color: var(--star_yellow);
     color: #fff;
-}
-
-.button-norm::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-}
-
-.button-white::after {
-    background-color: #fff;
-}
-
-.button-yellow::after {
-    background-color: var(--star_yellow);
-}
-
-.button-norm:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-@keyframes moveInBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
 }
 
 /* END of Components (Buttons and etc) */

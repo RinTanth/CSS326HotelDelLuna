@@ -1,7 +1,7 @@
 
 <!-- INSERT THE CONNECT LINK -->
 <!-- CONNECT TO THE DATABASE -->
-<?php 	require_once('connect.php'); ?>
+<?php require_once('connect.php'); ?>
 <!-- THIS IS FOR //Check_in_1_Recep.php// -->
 
 
@@ -35,13 +35,12 @@
 
 
     <?php
-        $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID, room.RoomNo, booking.BookingID
+        $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID, booking.BookingID
         FROM guest, booking, roomsbooked, room, roomtype
         WHERE roomsbooked.BookingID = booking.BookingID
         AND booking.GuestID = guest.GuestID
-        AND roomsbooked.RoomID = room.RoomID
-        AND room.TypeID = roomtype.TypeID
-        AND roomsbooked.Status = 0";
+        AND roomsbooked.Status = 0
+        GROUP BY roomsbooked.BookingID";
 
         $result = $mysqli -> query($q);
         if(!$result){
@@ -58,7 +57,6 @@
                 <p class="gl_name"><?=$row['Prefix']?> <?=$row['Fname']?> <?=$row['Lname']?></p> <!-- GUEST NAME -->
                 <p class="gl_info">Guests: <?=$row['Adults']?> Adults <?=$row['Children']?> Children<br> <!-- GUEST ADULT/CHILDREN -->
                     <?=$row['Name']?><br><!-- GUEST ROOM TYPE -->
-                    Room: <?=$row['RoomNo']?></p> <!-- GUEST ROOM NO -->
             </div>
 
             <div class="columnright">

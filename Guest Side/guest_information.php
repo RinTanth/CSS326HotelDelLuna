@@ -6,7 +6,6 @@ require_once('connect.php');  //connect to phpmyadmin
 
 // takes information from the check availability form
 if (isset($_POST['submit']))    {
-    $_SESSION['hotelid'] = $_POST['hotelid'];
     $_SESSION['roomname'] = $_POST['roomname'];
     $_SESSION['price'] = $_POST['price'];
     $_SESSION['typeid'] = $_POST['typeid'];
@@ -17,7 +16,6 @@ if (isset($_POST['submit']))    {
     $_SESSION['imagelink'] = $_POST['imagelink'];
 }
 
-$hotelid = $_SESSION['hotelid'];
 $typeid = $_SESSION['typeid'];
 $checkin = $_SESSION['checkin'];
 $checkout = $_SESSION['checkout'];
@@ -51,6 +49,8 @@ $TotalCost = $price * ($days);
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>HotelDelLuna | Guest information</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="stylecontainers.css">
+      <link rel="stylesheet" href="stylecomponents.css">
   </head>
 
   <body>
@@ -70,9 +70,10 @@ $TotalCost = $price * ($days);
                 <div>
                   <ul>
                     <li><a href='index.html'>Home</a></li>
-                    <!-- <li><a href='hotels.html'>Find a hotel</a></li> -->
-                    <li><a href='book_room.html'>Book a room</a></li>
                     <li><a href='about.html'>About us</a></li>
+                    <li><a href='book_room.html'>Book a room</a></li>
+                    <li><a href='rooms.php'>Rooms and Suites</a></li>
+                    <li><a href='services.html'>Services</a></li>
                   </ul>
                 </div>
               </div>
@@ -93,19 +94,19 @@ $TotalCost = $price * ($days);
         <div class="room-form-container">
           <div class="room-form-left">
             <div class="room-image" style="background-image: url(<?php echo $imagelink;?>)"></div>
-            <h1 class="room-heading" style="padding-top: 0.4em; font-weight: normal;"><?php echo $roomname?> Room</h1>  <!-- Name of room type-->
-            <h2 style="padding-top: 0.2em; padding-right: 1em; display: inline; font-weight: normal;">Check-in: <span><?php echo $checkin;?></span></h2>
-            <h2 style="padding-top: 0.2em; display: inline; font-weight: normal;">Check-out: <span><?php echo $checkout;?></span></h2>
-            <h2 style="padding-top: 0.2em; font-weight: normal;">Guests:
-              <span style="color: var(--dark_oak_brown)"> <?php echo $adults;?> Adults <?php echo $children;?> Children</span></h2>
-            <h2 style="padding-top: 0.2em; font-weight: normal;">Price per night: <span>$<?php echo $price;?></span></h2>
-            <h2 style="padding-top: 0.2em; font-weight: normal;">Amount due: <span>$<?php echo $TotalCost?></span></h2>
+            <h1 class="room-heading" style="padding-top: 0.4em; font-weight: bold;"><?php echo $roomname?> Room</h1>  <!-- Name of room type-->
+            <h2 style="padding-top: 0.2em; padding-right: 1em; display: inline; font-weight: bold;">Check-in: <span><?php echo $checkin;?></span></h2>
+            <h2 style="padding-top: 0.2em; display: inline; font-weight: bold;">Check-out: <span><?php echo $checkout;?></span></h2>
+            <h2 style="padding-top: 0.2em; font-weight: bold;">Guests:
+              <span> <?php echo $adults;?> Adults <?php echo $children;?> Children</span></h2>
+            <h2 style="padding-top: 0.2em; font-weight: bold;">Price per night: <span>$<?php echo $price;?></span></h2>
+            <h2 style="padding-top: 0.2em; font-weight: bold;">Amount due: <span>$<?php echo $TotalCost?></span></h2>
           </div>
 
           <div class="room-form-right">
             <form action="booking_insert.php" method="post"> <!-- Submit button *change the value to the roomType.TypeID so it can be posted -->
 
-                <h1 style="font-weight: normal;">Guest information</h1>
+                <h1 style="font-weight: bold;">Guest information</h1>
                 <select id="prefix" name="prefix">
                   <option value="Mr.">Mr.</option>
                   <option value="Ms.">Ms.</option>
@@ -370,7 +371,7 @@ $TotalCost = $price * ($days);
           				<option value="Zimbabwe">Zimbabwe</option>
                 </select>
 
-                <h1 style="padding-top: 1.2em; font-weight: normal;">Payment information</h1>
+                <h1 style="padding-top: 1.2em; font-weight: bold;">Payment information</h1>
                 <select id="method" name="method" >
                   <option value="Credit Card">Credit Card</option>
                   <option value="Bank Transfer">Bank Transfer</option>
@@ -385,7 +386,7 @@ $TotalCost = $price * ($days);
                   <input type="text" id="CV" name="CV" placeholder="CV2">
                 </div>
 
-                  <input type="hidden" name="hotelid" value="<?php echo $hotelid;?>">
+
                   <input type="hidden" name="typeid" value="<?php echo $typeid;?>">
                   <input type="hidden" name="checkin" value="<?php echo $checkin;?>">
                   <input type="hidden" name="checkout" value="<?php echo $checkout;?>">
@@ -396,8 +397,8 @@ $TotalCost = $price * ($days);
                   <input type="hidden" name="imagelink" value="<?php echo $imagelink;?>">
 
 
-                  <button type=button onclick="history.go(-1)" class=hover-button style="z-index: 1; margin-right: 10px; margin-top: 1.25em;">Go Back</button>
-                  <button type="submit" name="submit" class="hover-button" style="z-index: 1; margin-top: 1.25em; margin-right: 10px;">Confirm booking</button>
+                  <button type="button" onclick="history.go(-1)" class="button-norm" style="z-index: 1; margin-right: 10px; margin-top: 1.25em; font-size: 18px;">Go Back</button>
+                  <button type="submit" name="submit" class="button-norm button-yellow" style="z-index: 1; margin-top: 1.25em; margin-right: 10px; font-size: 18px;">Confirm booking</button>
             </form>
 
           </div>
@@ -410,19 +411,20 @@ $TotalCost = $price * ($days);
       <div class="container-bottom-footer">
         <div class="footer-section">
           <a href="about.html">About us</a>
-          <!-- <a href="hotels.html">Find a hotel</a> -->
           <a href="book_room.html">Book a room</a>
+          <a href="rooms.php">Rooms and Suites</a>
+          <a href="services.html">Services</a>
         </div>
 
         <div class="footer-section">
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-map-marker-alt'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-map-marker-alt'></i>
             <h1 style="margin-top: 17px; margin-left: 5px;">Main Headquarters</h1>
             <h2>28-5 Donhwamun-ro 11-gil, Jongno-gu</h2>
           </div>
 
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-envelope-open'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-envelope-open'></i>
             <h1 style="margin-top: 17px">Email</h1>
             <h2>support@lunadelhotel.org</h2>
           </div>
@@ -431,7 +433,7 @@ $TotalCost = $price * ($days);
 
         <div class="footer-section">
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-phone'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-phone'></i>
             <h1 style="margin-top: 17px">Phone</h1>
             <h2>02-420-6969</h2>
           </div>
