@@ -67,10 +67,10 @@ if (isset($_POST['submit']))    {
               <div>
                 <div>
                   <ul>
-                    <li><a href='index.html'>Home</a></li>
-                    <!-- <li><a href='hotels.html'>Find a hotel</a></li> -->
-                    <li><a href='book_room.html'>Book a room</a></li>
                     <li><a href='about.html'>About us</a></li>
+                    <li><a href='book_room.html'>Book a room</a></li>
+                    <li><a href='rooms.php'>Rooms and Suites</a></li>
+                    <li><a href='services.html'>Services</a></li>
                   </ul>
                 </div>
               </div>
@@ -79,7 +79,7 @@ if (isset($_POST['submit']))    {
       </div>
 
     <!-- Home screen image and text -->
-      <div class="background-splash" style="background-image: url(images/cover2.jpg)">
+      <div class="background-splash" style="background-image: url(images/cover1.jpg)">
         <h1 style="top: 40%">Select a room</h1>
       </div>
 
@@ -173,19 +173,20 @@ if (isset($_POST['submit']))    {
       <div class="container-bottom-footer">
         <div class="footer-section">
           <a href="about.html">About us</a>
-          <!-- <a href="hotels.html">Find a hotel</a> -->
           <a href="book_room.html">Book a room</a>
+          <a href="rooms.php">Rooms and Suites</a>
+          <a href="services.html">Services</a>
         </div>
 
         <div class="footer-section">
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-map-marker-alt'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-map-marker-alt'></i>
             <h1 style="margin-top: 17px; margin-left: 5px;">Main Headquarters</h1>
             <h2>28-5 Donhwamun-ro 11-gil, Jongno-gu</h2>
           </div>
 
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-envelope-open'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-envelope-open'></i>
             <h1 style="margin-top: 17px">Email</h1>
             <h2>support@lunadelhotel.org</h2>
           </div>
@@ -194,7 +195,7 @@ if (isset($_POST['submit']))    {
 
         <div class="footer-section">
           <div class="footer-information">
-            <i style="font-size:25px;color:white;" class='fas fa-phone'></i>
+            <i style="font-size:25px;color:var(--star_yellow);" class='fas fa-phone'></i>
             <h1 style="margin-top: 17px">Phone</h1>
             <h2>02-420-6969</h2>
           </div>
