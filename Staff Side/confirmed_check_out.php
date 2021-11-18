@@ -94,7 +94,7 @@ require_once('connect.php');
 
       <div style="position: relative; margin-top: 2em; text-align: center;">
         <form action="check_out_update.php" method="post">
-          <button class="hover-button">Proceed</button>
+          <button class="hover-button" style="padding: 0.5em 3em 0.5em 3em;">Proceed</button>
           <input type="hidden" value="<?php echo $guestid;?>" name="guestid">
           <input type="hidden" value="<?php echo $hotelid;?>" name="hotelid">
           <input type="hidden" value="<?php echo $bookid;?>" name="bookid">

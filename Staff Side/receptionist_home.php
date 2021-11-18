@@ -32,10 +32,10 @@
 
         <div class="button-grid-layout">
           <form class="" action="guest_list.php" method="post">
-            <button type="submit" name="receptionist_submit" class="hover-button" style="z-index: 1; margin: 1em;">Guest List</button>
+            <button type="submit" name="receptionist_submit" class="hover-button" style="z-index: 1; margin: 1em; padding: 0.75em 2em 0.75em 2em;">Guest List</button>
           </form>
-          <button type="button" onclick="window.location.href='check_in.php'" class="hover-button" style="z-index: 1; margin: 1em;">Check-in</button>
-          <button type="button" onclick="window.location.href='check_out.php'" class="hover-button" style="z-index: 1; margin: 1em;">Check-out</button>
+          <button type="button" onclick="window.location.href='check_in.php'" class="hover-button" style="z-index: 1; margin: 1em; padding: 0.75em 2em 0.75em 2em;">Check-in</button>
+          <button type="button" onclick="window.location.href='check_out.php'" class="hover-button" style="z-index: 1; margin: 1em; padding: 0.75em 2em 0.75em 2em;">Check-out</button>
         </div>
 
       </div>

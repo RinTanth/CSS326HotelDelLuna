@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--dark_blue);
 
 }
 
@@ -25,8 +26,9 @@ canvas  {
   --cream: #FAE9CF;
   --light_brown: #CDA67A;
   --brown: #986544;
-  --dark_coffee_brown: #6A462F;
-  --dark_oak_brown: #4A3120;
+  --dark_blue: #001E33;
+  --star_yellow: #E9D086;
+  --metal_blue: #95AAB9;
 }
 
 
@@ -34,9 +36,10 @@ canvas  {
 .hover-button  {
   font-size: 1.3rem;
   padding: 10px 30px;
-  border: var(--brown) solid 2px;
-  color: var(--brown);
-  background: none;
+  border: var(--star_yellow) solid 2px;
+  color: white;
+  background-color: var(--star_yellow);
+  border-radius: 100px;
   font-weight: bold;
   letter-spacing: 1px;
   position: relative;
@@ -44,27 +47,6 @@ canvas  {
   transition: .4s;
   cursor: pointer;
   text-decoration: none;
-}
-
-.hover-button::after  {
-  content: '';
-  width: 0%;
-  height: 100%;
-  position: absolute;
-  background: var(--brown);
-  left: 0;
-  top: 0;
-  z-index: -1;
-  transition: .4s;
-  overflow: hidden;
-}
-
-.hover-button:hover  {
-  color: white;
-}
-
-.hover-button:hover::after  {
-  width: 100%;
 }
 
 
@@ -98,7 +80,7 @@ canvas  {
 }
 
 .hover-button-alt:hover  {
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 }
 
 .hover-button-alt:hover::after  {
@@ -111,9 +93,9 @@ canvas  {
   position: relative;
   width: 35px;
   height: 35px;
-  background: white;
+  background: transparent;
   cursor: pointer;
-  border: 2px solid var(--brown);
+  border: 2px solid var(--star_yellow);
 }
 
 .button-plus:after {
@@ -122,7 +104,7 @@ canvas  {
   transform: translate(-50%, -50%);
   height: 4px;
   width: 50%;
-  background: var(--brown);
+  background: var(--star_yellow);
   top: 50%;
   left: 50%;
 }
@@ -133,7 +115,7 @@ canvas  {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--brown);
+  background: var(--star_yellow);
   height: 50%;
   width: 4px;
 }
@@ -145,7 +127,7 @@ canvas  {
 }
 
 .button-plus:hover {
-  background-color: var(--brown);
+  background-color: var(--star_yellow);
   transition: 0.2s;
 }
 
@@ -158,9 +140,9 @@ canvas  {
   position: relative;
   width: 35px;
   height: 35px;
-  background: white;
+  background: transparent;
   cursor: pointer;
-  border: 2px solid var(--brown);
+  border: 2px solid var(--star_yellow);
 }
 
 .button-minus:after {
@@ -169,7 +151,7 @@ canvas  {
   transform: translate(-50%, -50%);
   height: 4px;
   width: 50%;
-  background: var(--brown);
+  background: var(--star_yellow);
   top: 50%;
   left: 50%;
 }
@@ -181,7 +163,7 @@ canvas  {
 }
 
 .button-minus:hover {
-  background-color: var(--brown);
+  background-color: var(--star_yellow);
   transition: 0.2s;
 }
 
@@ -210,7 +192,7 @@ canvas  {
   font-size: 28px;
   font-family: Cambria;
   font-weight: bold;
-  color: var(--dark_coffee_brown);
+  color: var(--dark_blue);
   text-decoration: none;
   z-index: 9;
 }
@@ -218,11 +200,12 @@ canvas  {
 .navbar {
   top: 0;
   position: fixed;
-  background-color: var(--dark_coffee_brown);
+  background-color: var(--dark_blue);
   width: 100%;
   height: 60px;
   text-align: center;
   z-index: 10;
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.4);
 
 }
 
@@ -242,7 +225,7 @@ canvas  {
   font-size: 35px;
   margin: auto;
   font-weight: normal;
-  color: var(--dark_coffee_brown);
+  color: white;
   padding-bottom: 1em;
   padding-top: 1em;
   text-align: center;
@@ -260,7 +243,7 @@ canvas  {
   text-align: center;
   width: 60%;
   margin: auto;
-  background-color: white;
+  background-color: var(--metal_blue);
   border-radius: 10px;
   box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.2);
   padding: 2em;
@@ -272,7 +255,7 @@ canvas  {
   font-size: 40px;
   font-family: Cambria;
   font-weight: bold;
-  color: var(--dark_coffee_brown);
+  color: var(--dark_blue);
   text-decoration: none;
 }
 
@@ -281,8 +264,8 @@ canvas  {
   position: relative;
   margin: auto;
   width: 400px;
-  background-color: white;
-  padding: 2em;
+  background-color: var(--metal_blue);
+  justify-content: center;
   padding-top: 4em;
   padding-bottom: 4em;
   text-align: center;
@@ -295,6 +278,7 @@ canvas  {
   font-size: 20px;
   padding: 10px 30px;
   margin-bottom: 20px;
+  border: none;
 }
 
 .login-form > form > button {
@@ -343,12 +327,12 @@ canvas  {
 .country-container > h1 {
   font-size: 40px;
   font-weight: 400;
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 }
 
 .country-hotels > button {
   border: none;
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
   font-size: 25px;
   padding-right: 40px;
   font-weight: 300;
@@ -372,9 +356,9 @@ canvas  {
   flex-wrap: wrap;
   margin: auto;
   width: 50%;
-  border: white solid 2px;
+  border: var(--metal_blue) solid 2px;
   margin-bottom: 1em;
-  background-color: white;
+  background-color: var(--metal_blue);
   border-radius: 10px;
   box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.2);
 }
@@ -416,7 +400,7 @@ canvas  {
   display: flex;
   width: 50%;
   margin: auto;
-  background-color: white;
+  background-color: var(--metal_blue);
   border-radius: 10px;
   box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
@@ -559,7 +543,7 @@ canvas  {
 }
 
 .room-container-right > h2 > span {
-  color: var(--dark_oak_brown);
+  color: var(--dark_blue);
 }
 
 
