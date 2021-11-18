@@ -7,7 +7,6 @@ require_once('connect.php');  //connect to phpmyadmin
 
 // takes information from the check availability form
 if (isset($_POST['submit']))    {
-    $_SESSION['hotelid'] = $_POST['hotelid'];
     $_SESSION['checkin'] = $_POST['checkin'];
     $_SESSION['checkout'] = $_POST['checkout'];
     $_SESSION['adults'] = $_POST['adults'];
@@ -21,14 +20,13 @@ if (isset($_POST['submit']))    {
 }
 
     $totalguests = $_SESSION['adults'] + $_SESSION['children'];
-    $hotelid = $_SESSION['hotelid'];
     $checkin = $_SESSION['checkin'];
     $checkout = $_SESSION['checkout'];
     $adults = $_SESSION['adults'];
     $children = $_SESSION['children'];
 
     $q = "SELECT DISTINCT roomtype.TypeID, roomtype.Price FROM roomtype, room WHERE roomtype.TypeID = room.TypeID
-    AND roomtype.MaxGuests >= '$totalguests' AND room.HotelID = '$hotelid'
+    AND roomtype.MaxGuests >= '$totalguests'
     ORDER BY roomtype.Price";
 
     $result = $mysqli -> query($q);
@@ -49,6 +47,8 @@ if (isset($_POST['submit']))    {
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>HotelDelLuna | Book a room</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="stylecomponents.css">
+      <link rel="stylesheet" href="stylecontainers.css">
   </head>
 
   <body>
@@ -84,7 +84,7 @@ if (isset($_POST['submit']))    {
       </div>
 
 
-    <!-- Form container for checking availability -->
+    <!-- Table container for Room availability -->
       <div class="room-table">
 
         <!-- Insert SQL query / PHP for checking available rooms -->
@@ -151,7 +151,6 @@ if (isset($_POST['submit']))    {
 
             <form action="guest_information.php" method="post"> <!-- Submit button *change the value to the roomType.TypeID so it can be posted -->
               <input type="hidden" name="typeid" value="<?php echo $typeid;?>">
-              <input type="hidden" name="hotelid" value="<?php echo $hotelid;?>">
               <input type="hidden" name="checkin" value="<?php echo $checkin;?>">
               <input type="hidden" name="checkout" value="<?php echo $checkout;?>">
               <input type="hidden" name="adults" value="<?php echo $adults;?>">
@@ -159,7 +158,16 @@ if (isset($_POST['submit']))    {
               <input type="hidden" name="roomname" value="<?php echo $row1['Name'];?>">
               <input type="hidden" name="price" value="<?php echo $row1['Price'];?>">
               <input type="hidden" name="imagelink" value="<?php echo $row1['ImageLink'];?>">
-              <button type="submit" name="submit" class="hover-button" style="z-index: 1; margin-top: 1.25em;">Book now</button>
+              <div class="button-box">
+                <button type="submit" name="submit" class="button-norm button-yellow" style="z-index: 1; margin-top: 1.25em; font-size: 18px;">Book now</button>
+              </div>
+
+
+
+
+
+
+
             </form>
 
           </div>
@@ -167,6 +175,8 @@ if (isset($_POST['submit']))    {
       <?php } }?>
 
       </div>
+
+      <!-- END OF Table container for Room availability -->
 
 
       <!-- Bottom Footer container -->
