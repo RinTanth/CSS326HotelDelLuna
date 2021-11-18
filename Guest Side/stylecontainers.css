@@ -1,4 +1,4 @@
-
+/* START OF Simple Plain Container */
 .plain-container {
   padding-top: 6em;
   padding-bottom: 6em;
@@ -8,7 +8,31 @@
 }
 
 
+.plain-container > p{
+  padding-top: 1em;
+  font-size: 22px;
+  font-weight: normal;
+  color: white;
 
+}
+
+
+.image-plain-column {
+  position: relative;
+  height: 600px;
+  width: 85%;
+  margin: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+
+/* END OF Simple Plain Container */
+
+
+/* START OF Two Column Container (Responsive) */
 .two-columns-container  {
   display: flex;
   flex-direction: row;
@@ -50,8 +74,13 @@
 
 
 @media (max-width: 800px) {
+
   .two-columns-container {
     flex-direction: column;
+  }
+
+  .image-plain-column-res {
+    margin-top: 10px;
   }
 
   .image-column {
@@ -60,3 +89,53 @@
     justify-content: center;
   }
 }
+
+/* END OF Two Column Container (Responsive) */
+
+
+/* START OF Top Footer Container (Responsive) */
+
+
+/* END OF Top Footer Container (Responsive) */
+
+/* START OF Form Containers */
+.form-availability  {
+  padding: 1em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  background-color: var(--metal_blue);
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form-block {
+  display: inline-block;
+  padding: 15px;
+  text-align: left;
+}
+
+.form-block > label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+.form-block > input[type=date] {
+  padding: 10px 30px;
+  font-size: 18px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.form-block > select {
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+  color: black;
+  border-radius: 5px;
+}
+/* END OF Form containers */

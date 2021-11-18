@@ -356,43 +356,6 @@ h2 {
 /* End of Hotels List Container */
 
 
-/* Start of Form Containers */
-.form-availability  {
-  top: 400px;
-  padding: 1em;
-  border-radius: 10px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  width: 85%;
-  background-color: white;
-  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.5);
-}
-
-.form-block {
-  display: inline-block;
-  padding: 15px;
-  text-align: left;
-}
-
-.form-block > label {
-  font-size: 1.3rem;
-  padding-bottom: 0.5em;
-}
-
-.form-block > input[type=date] {
-  padding: 10px 30px;
-  font-size: 18px;
-
-}
-
-.form-block > select {
-  padding: 10px 30px;
-  font-size: 18px;
-}
-/* End of Form containers */
-
 
 /* Hotel Room Container */
 .room-table  {
