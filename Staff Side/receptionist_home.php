@@ -1,13 +1,5 @@
 <!DOCTYPE HTML>
-<?php session_start();
-require_once('connect.php');
-$hotelID = $_SESSION['HotelID'];
-$q = "SELECT Name, Province, Country FROM hotel WHERE HotelID = $hotelID";
-
-$result = $mysqli -> query($q);
-$row = $result -> fetch_array();
-
-?>
+<?php require_once('connect.php'); ?>
 
 <html>
   <!-- Head of the page -->
@@ -18,7 +10,7 @@ $row = $result -> fetch_array();
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>CinnaTel Staff | Home Receptionist</title>
+      <title>HotelDelLuna Staff | Home Receptionist</title>
       <link rel="stylesheet" href="stylestaff.css">
   </head>
 
@@ -34,13 +26,13 @@ $row = $result -> fetch_array();
 
       <div class="home-container">
         <div class="hotel-heading">
-          <h1 class="hotel-name"><?php echo $row['Name'];?></h1>
-          <h2 class="hotel-location"><?php echo $row['Province'];?>, <?php echo $row['Country'];?></h2>
+          <h1 class="hotel-name">Hotel Del Luna</h1>
+          <h2 class="hotel-location">28-5 Donhwamun-ro 11-gil, Jongno-gu</h2>
         </div>
 
         <div class="button-grid-layout">
           <form class="" action="guest_list.php" method="post">
-            <button type="submit" name="receptionist_submit" class="hover-button" style="z-index: 1; margin: 1em;" value="<?php echo $hotelID?>">Guest List</button>
+            <button type="submit" name="receptionist_submit" class="hover-button" style="z-index: 1; margin: 1em;">Guest List</button>
           </form>
           <button type="button" onclick="window.location.href='check_in.php'" class="hover-button" style="z-index: 1; margin: 1em;">Check-in</button>
           <button type="button" onclick="window.location.href='check_out.php'" class="hover-button" style="z-index: 1; margin: 1em;">Check-out</button>

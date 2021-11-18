@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <?php
 require_once('connect.php');
-
-
 ?>
 
 <html>
@@ -14,7 +12,7 @@ require_once('connect.php');
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>CinnaTel Staff | Check-out</title>
+      <title>HotelDelLuna Staff | Check-out</title>
       <link rel="stylesheet" href="stylestaff.css">
   </head>
 
@@ -33,20 +31,16 @@ require_once('connect.php');
       <?php
         if(isset($_POST['submit'])){
             $guestid = $_POST['guestid'];
-            $hotelid = $_POST['hotelid'];
             $bookid = $_POST['bookid'];
 
 
-            $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, roomtype.Price,
-            booking.DateFrom ,booking.DateTo ,payment.Method, guest.GuestID, hotel.HotelID, room.RoomID, room.No
-            FROM guest, booking, roomsbooked, room, roomtype, payment, hotel
-            WHERE guest.guestID = booking.guestID
-            AND booking.BookingID = roomsbooked.BookingID
-            AND roomsbooked.TypeID = roomtype.TypeID
+            $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, roomtype.Price, booking.DateFrom ,booking.DateTo ,payment.Method, room.RoomNo, room.RoomID
+            FROM guest, booking, roomsbooked, room, roomtype, payment
+            WHERE roomsbooked.BookingID = booking.BookingID
+            AND booking.GuestID = guest.GuestID
             AND roomsbooked.RoomID = room.RoomID
-            AND booking.HotelID = hotel.HotelID
-            AND booking.PaymentID = payment.PaymentID
-            AND hotel.HotelID = '$hotelid'
+            AND room.TypeID = roomtype.TypeID
+            AND payment.PaymentID = booking.PaymentID
             AND guest.guestID = '$guestid'
             AND booking.BookingID = '$bookid'";
 
@@ -77,7 +71,7 @@ require_once('connect.php');
           <div class="guest-container-left">
             <h1><?=$row['Prefix']?> <?=$row['Fname']?> <?=$row['Lname']?></h1>
             <h2>Guests: <?=$row['Adults']?> Adults, <?=$row['Children']?> Children</h2>
-            <h2><?=$row['Name']?>, Room No. <?=$row['No']?></h2>
+            <h2><?=$row['Name']?>, Room No. <?=$row['RoomNo']?></h2>
             <h2>Price per night: $<?=$row['Price']?></h2>
             <h2>Check-in: <?=$row['DateFrom']?></h2>
             <h2>Check-out: <?=$row['DateTo']?></h2>
@@ -88,8 +82,7 @@ require_once('connect.php');
           <h2>Amount due: $<?=$TotalCost?></h2>
             <h2>Payment Method: <?=$row['Method']?></h2>
             <form class="" action="confirmed_check_out.php" method="post">
-              <input type="hidden" value="<?php echo $row['GuestID'];?>" name="guestid">
-              <input type="hidden" value="<?php echo $row['HotelID'];?>" name="hotelid">
+              <input type="hidden" value="<?php echo $guestid;?>" name="guestid">
               <input type="hidden" value="<?php echo $bookid;?>" name="bookid">
               <input type="hidden" value="<?php echo $row['RoomID'];?>" name="roomid">
               <button type="submit" name="submit" class="hover-button" style="font-size: 18px; z-index: 1; margin-top: 10px;">Confirm Check-out</button>

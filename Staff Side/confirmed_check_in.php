@@ -14,7 +14,7 @@ require_once('connect.php');
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>CinnaTel Staff | Check-in confirmed</title>
+      <title>HotelDelLuna Staff | Check-in confirmed</title>
       <link rel="stylesheet" href="stylestaff.css">
   </head>
 
@@ -33,19 +33,15 @@ require_once('connect.php');
       <?php
         if(isset($_POST['submit'])){
             $guestid = $_POST['guestid'];
-            $hotelid = $_POST['hotelid'];
             $roomid = $_POST['roomid'];
             $bookid = $_POST['bookid'];
 
-            $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, roomtype.Price, booking.DateFrom,
-            booking.DateTo, payment.Method, guest.GuestID, hotel.HotelID, booking.BookingID
-            FROM guest, booking, roomsbooked, room, roomtype, payment, hotel
-            WHERE guest.guestID = booking.guestID
-            AND booking.BookingID = roomsbooked.BookingID
+            $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, roomtype.Price, booking.DateFrom ,booking.DateTo ,payment.Method
+            FROM guest, booking, roomsbooked, roomtype, payment
+            WHERE roomsbooked.BookingID = booking.BookingID
+            AND booking.GuestID = guest.GuestID
+            AND payment.PaymentID = booking.PaymentID
             AND roomsbooked.TypeID = roomtype.TypeID
-            AND booking.HotelID = hotel.HotelID
-            AND booking.PaymentID = payment.PaymentID
-            AND hotel.HotelID = '$hotelid'
             AND guest.guestID = '$guestid'
             AND booking.BookingID = '$bookid'";
 
@@ -99,7 +95,6 @@ require_once('connect.php');
         <form action="check_in_update.php" method="post">
           <button class="hover-button">Proceed</button>
           <input type="hidden" value="<?php echo $guestid;?>" name="guestid">
-          <input type="hidden" value="<?php echo $hotelid;?>" name="hotelid">
           <input type="hidden" value="<?php echo $bookid?>" name="bookid">
           <input type="hidden" value="<?php echo $roomid;?>" name="roomid">
         </form>

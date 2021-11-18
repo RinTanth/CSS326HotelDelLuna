@@ -1,31 +1,19 @@
 <?php
-  session_start();
-  require_once('connect.php');
-
-  if(isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $password = $_POST['password'];
-  }
+    $passwd = $_POST['password'];
+    require_once('connect.php');
+    $q="select * from staff where Username='".$username."'and Passwd='".$passwd."'";
 
-
-  $valid = false;
-  $q = "SELECT * FROM staff";
-  $result = $mysqli -> query($q);
-
-   while($row=$result->fetch_array()){
-     if (($row['Username'] == $username) and ($row['Password'] == $password)) {
-       $_SESSION['HotelID'] = $row['HotelID'];
-
-       if ($row['Position'] == 'Receptionist')  {
-         header('Location: receptionist_home.php');
-       }
-
-       elseif ($row['Position'] == 'Manager')  {
-         header('Location: manager_home.html');
-       }
-     }
-   }
-
-   echo "Invalid login";
-
- ?>
+    $result = $mysqli -> query($q);
+    if (!$result) {
+        die('Error: '.$q." ". $mysqli->error);
+    }
+    $count = $result -> num_rows;
+    // if result matchesm there must be one row returned
+    if ($count==1){
+        echo "Login Successfully";
+        header("Location: receptionist_home.php");
+    } else {
+        echo "Wrong Username or Password";
+    }
+?>

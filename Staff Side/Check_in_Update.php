@@ -1,50 +1,49 @@
 <?php
     $guestid = $_POST['guestid'];
-    $hotelid = $_POST['hotelid'];
     $bookid = $_POST['bookid'];
     $roomid = $_POST['roomid'];
     require_once('connect.php');
-    echo "---check_in_update php desuyo---";
-    // update room.Status to 1 --> room not availiable
 
-    $q="UPDATE room SET Status = 1
-    WHERE RoomID = $roomid";
+    // update roomstatus table -> Status = 1 --> room full leaw
+    $q="SELECT StatusID
+    FROM room
+    WHERE room.RoomID = $roomid";
 
-    $result = $mysqli -> query($q);
+
+    $statusid = $mysqli -> query($q);
+    if (!$statusid) {
+        die('Error here look 13: '.$q." //// ". $mysqli->error);
+    }
+
+
+    $sid=$statusid->fetch_array();
+    $lastsid = $sid['StatusID'];
+
+
+    $q2="UPDATE roomstatus SET Status = 1
+    WHERE StatusID = $lastsid";
+
+
+
+    $result = $mysqli -> query($q2);
     if (!$result) {
-        die('Error look at q : '.$q." //// ". $mysqli->error);
+        die('Error here look 24: '.$q2." //// ". $mysqli->error);
     }
-    echo "<br>";
-    echo "--room.Status updated--";
 
 
-    // update roomsbooked.RoomID to 1 --> assign the room to the guest
+    // update roomsbooked table -> Status = 1 --> check in leaw
 
-    $q1="UPDATE roomsbooked SET RoomID = $roomid
+    $q4="UPDATE roomsbooked SET Status = 1, RoomID = '$roomid'
     WHERE BookingID = $bookid";
 
-    $result1 = $mysqli -> query($q1);
-    if (!$result1) {
-        die('Error look at q : '.$q1." //// ". $mysqli->error);
-    }
-    echo "<br>";
-    echo "--roomsbooked.RoomID updated--";
 
-
-    // update roomsbooked.Status to 1 --> check in leaw
-
-    $q2="UPDATE roomsbooked SET Status = 1
-    WHERE BookingID = $bookid";
-
-    $result2 = $mysqli -> query($q2);
+    $result2 = $mysqli -> query($q4);
     if (!$result2) {
-        die('Error look at q : '.$q2." //// ". $mysqli->error);
+        die('Error here look 45: '.$q4." //// ". $mysqli->error);
     }
 
     echo "<br>";
     echo "--roomsbooked.Status updated--";
-
     header("Location: receptionist_home.php");
-
 
 ?>

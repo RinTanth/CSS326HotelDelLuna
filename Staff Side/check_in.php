@@ -1,14 +1,5 @@
 <!DOCTYPE HTML>
-<?php session_start();
-require_once('connect.php');
-$hotelID = $_SESSION['HotelID'];
-$q = "SELECT Name, Province, Country FROM hotel WHERE HotelID = $hotelID";
-
-$result = $mysqli -> query($q);
-$row = $result -> fetch_array();
-
-
-?>
+<?php require_once('connect.php'); ?>
 
 <html>
   <!-- Head of the page -->
@@ -19,7 +10,7 @@ $row = $result -> fetch_array();
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>CinnaTel Staff | Check-in</title>
+      <title>HotelDelLuna Staff | Check-in</title>
       <link rel="stylesheet" href="stylestaff.css">
   </head>
 
@@ -37,15 +28,13 @@ $row = $result -> fetch_array();
       <h1 class="page-heading">Check-in</h1>
 
       <?php
-        $q = "SELECT guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, booking.DateFrom, booking.DateTo, roomtype.Name, guest.GuestID, hotel.HotelID, booking.BookingID
-        FROM guest, booking, roomsbooked, room, roomtype, hotel
-        WHERE guest.GuestID = booking.GuestID
-        AND booking.BookingID = roomsbooked.BookingID
+        $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID, booking.BookingID
+        FROM guest, booking, roomsbooked, roomtype
+        WHERE roomsbooked.BookingID = booking.BookingID
+        AND booking.GuestID = guest.GuestID
         AND roomsbooked.TypeID = roomtype.TypeID
-        AND booking.HotelID = hotel.HotelID
         AND roomsbooked.Status = 0
-        AND hotel.HotelID = '$hotelID'
-        GROUP BY booking.BookingID";
+        GROUP BY roomsbooked.BookingID";
 
         $result = $mysqli -> query($q);
         if(!$result){
@@ -73,7 +62,6 @@ $row = $result -> fetch_array();
               <button type="submit" name="submit" class="button-plus"></button>
               <input type="hidden" value="<?php echo $row['Name'];?>" name="rtname">
               <input type="hidden" value="<?php echo $row['GuestID'];?>" name="guestid">
-              <input type="hidden" value="<?php echo $row['HotelID'];?>" name="hotelid">
               <input type="hidden" value="<?php echo $row['BookingID'];?>" name="bookid">
             </form>
           </div>
