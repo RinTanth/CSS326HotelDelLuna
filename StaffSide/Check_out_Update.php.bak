@@ -4,7 +4,7 @@
     $bookid = $_POST['bid_up'];
     require_once('connect.php');
 
-    // update roomstatus table -> Status = 1 --> room full leaw
+    // update roomstatus table -> Status = 0 --> room free leaw
     $q="SELECT StatusID
     FROM room
     WHERE room.RoomID = $roomid";
@@ -15,12 +15,12 @@
         die('Error here look 13: '.$q." //// ". $mysqli->error);
     }
 
-
     $sid=$statusid->fetch_array();
+
     $lastsid = $sid['StatusID'];
 
 
-    $q2="UPDATE roomstatus SET Status = 1
+    $q2="UPDATE roomstatus SET Status = 0
     WHERE StatusID = $lastsid";
 
 
@@ -31,9 +31,24 @@
     }
 
 
-    // update roomsbooked table -> Status = 1 --> check in leaw
+    // update roomsbooked table -> Status = 0 --> check out leaw
+    // $q3="SELECT booking.BookingID
+    // FROM booking
+    // WHERE booking.GuestID = $guestid";
+    //
+    //
+    //
+    // $bookingid = $mysqli -> query($q3);
+    // if (!$bookingid) {
+    //     die('Error here look 34: '.$q3." //// ". $mysqli->error);
+    // }
+    //
+    // $bid=$bookingid->fetch_array();
+    //
+    // $lastbid = $bid['BookingID'];
 
-    $q4="UPDATE roomsbooked SET Status = 1, RoomID = '$roomid'
+
+    $q4="UPDATE roomsbooked SET Status = 0, RoomID = NULL
     WHERE BookingID = $bookid";
 
 
@@ -44,7 +59,6 @@
 
 
     header("Location: Home_Recep.html");
-
 
 
 
