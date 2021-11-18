@@ -371,8 +371,20 @@ $TotalCost = $price * ($days);
           				<option value="Zimbabwe">Zimbabwe</option>
                 </select>
 
+                <script>
+                  function yesnoCheck(that) {
+                      if (that.value == "Credit Card") {
+                          alert("check");
+                          document.getElementById("paymethod").style.display = "block";
+                      } else {
+                          document.getElementById("paymethod").style.display = "none";
+                      }
+                  }
+                </script>
+
                 <h1 style="padding-top: 1.2em; font-weight: bold;">Payment information</h1>
-                <select id="method" name="method" >
+                <select onchange="yesnoCheck(this);" id="method" name="method" >
+                  <option>-</option>
                   <option value="Credit Card">Credit Card</option>
                   <option value="Bank Transfer">Bank Transfer</option>
                   <option value="Kidney">Your Kidney</option>
@@ -380,7 +392,9 @@ $TotalCost = $price * ($days);
                   <option value="Your Soul">Your Soul</option>
                 </select>
 
-                <div class="">
+
+
+                <div id="paymethod" style="display: none;">
                   <input type="text" id="Ricardo" name="cardnum" placeholder="Card number">
                   <input type="text" id="exp" name="exp" placeholder="Expiration date (MM/YY)">
                   <input type="text" id="CV" name="CV" placeholder="CV2">
@@ -396,9 +410,11 @@ $TotalCost = $price * ($days);
                   <input type="hidden" name="roomname" value="<?php echo $roomname;?>">
                   <input type="hidden" name="imagelink" value="<?php echo $imagelink;?>">
 
-
+                <div>
                   <button type="button" onclick="history.go(-1)" class="button-norm" style="z-index: 1; margin-right: 10px; margin-top: 1.25em; font-size: 18px;">Go Back</button>
                   <button type="submit" name="submit" class="button-norm button-yellow" style="z-index: 1; margin-top: 1.25em; margin-right: 10px; font-size: 18px;">Confirm booking</button>
+                </div>
+
             </form>
 
           </div>
