@@ -53,6 +53,7 @@
             WHERE roomsbooked.BookingID = booking.BookingID
             AND booking.GuestID = guest.GuestID
             AND payment.PaymentID = booking.PaymentID
+            AND roomsbooked.TypeID = roomtype.TypeID
             AND guest.guestID = '$guestid'
             AND booking.BookingID = '$bookid'";
 

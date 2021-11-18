@@ -36,9 +36,10 @@
 
     <?php
         $q = "SELECT guest.GuestID, guest.Prefix, guest.Fname, guest.Lname, booking.Adults, booking.Children, roomtype.Name, booking.BookingID, booking.BookingID
-        FROM guest, booking, roomsbooked, room, roomtype
+        FROM guest, booking, roomsbooked, roomtype
         WHERE roomsbooked.BookingID = booking.BookingID
         AND booking.GuestID = guest.GuestID
+        AND roomsbooked.TypeID = roomtype.TypeID
         AND roomsbooked.Status = 0
         GROUP BY roomsbooked.BookingID";
 
