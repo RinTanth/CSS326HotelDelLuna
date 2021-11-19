@@ -12,7 +12,6 @@ Check-out | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Guest List | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 View Guest Info | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
-
-Book a room page NEED CSS AND CALL SQL to Check Room Availability
-
 Service Page
+
+cannot press 'back' on page filling guest info
