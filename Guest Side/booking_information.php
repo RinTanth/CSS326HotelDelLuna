@@ -56,7 +56,7 @@ $TotalCost = $row['Price'] * ($days);
                   <ul>
                     <li><a href='index.html'>Home</a></li>
                     <li><a href='about.html'>About us</a></li>
-                    <li><a href='book_room.html'>Book a room</a></li>
+                    <li><a href='index.html'>Book a room</a></li>
                     <li><a href='rooms.php'>Rooms and Suites</a></li>
                     <li><a href='services.html'>Services</a></li>
                   </ul>
@@ -102,7 +102,7 @@ $TotalCost = $row['Price'] * ($days);
       <div class="container-bottom-footer">
         <div class="footer-section">
           <a href="about.html">About us</a>
-          <a href="book_room.html">Book a room</a>
+          <a href="index.html">Book a room</a>
           <a href="rooms.php">Rooms and Suites</a>
           <a href="services.html">Services</a>
         </div>
