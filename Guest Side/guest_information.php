@@ -393,7 +393,7 @@ $TotalCost = $price * ($days);
 
                 <div id="bankmethod" style="display: none; margin-top: 20px;">
                   <label for="bankslip"><i class="fas fa-upload" style="margin-top: 10px; margin-bottom: 10px; color: var(--dark_blue); margin-right: 10px;"></i>Upload Bank Slip<label>
-                  <input type="file" id="bankslip">
+                  <input type="file" id="bankslip" name="bankslip">
                 </div>
 
 
