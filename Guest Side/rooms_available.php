@@ -45,7 +45,7 @@ if (isset($_POST['submit']))    {
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>HotelDelLuna | Book a room</title>
+      <title>Hotel Del Luna | Book a room</title>
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="stylecomponents.css">
       <link rel="stylesheet" href="stylecontainers.css">
@@ -67,8 +67,8 @@ if (isset($_POST['submit']))    {
               <div>
                 <div>
                   <ul>
+                    <li><a href='index.html'>Home</a></li>
                     <li><a href='about.html'>About us</a></li>
-                    <li><a href='index.html'>Book a room</a></li>
                     <li><a href='rooms.php'>Rooms and Suites</a></li>
                     <li><a href='services.html'>Services</a></li>
                   </ul>
