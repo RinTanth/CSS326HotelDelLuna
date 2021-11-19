@@ -46,7 +46,7 @@ if(!$result) {
                     <li><a href='index.html'>Home</a></li>
                     <li><a href='about.html'>About us</a></li>
                     <li><a href='rooms.php'>Rooms and Suites</a></li>
-                    <li><a href='services.html'>Services</a></li>
+                    <li><a href='#'>Services</a></li>
                   </ul>
                 </div>
               </div>
@@ -57,7 +57,7 @@ if(!$result) {
 
     <!-- Home screen image and text -->
       <div class="background-splash" style="background-image: url('images/cover1.jpg');">
-        <h1 style="font-family: Georgia; color: white;">Rooms and Suites</h1>
+        <h1 style="color: white;">Rooms and Suites</h1>
       </div>
 
 
@@ -86,7 +86,7 @@ if(!$result) {
         <a href="about.html">About us</a>
         <a href="index.html">Book a room</a>
         <a href="rooms.php">Rooms and Suites</a>
-        <a href="services.html">Services</a>
+        <a href="#">Services</a>
       </div>
 
       <div class="footer-section">

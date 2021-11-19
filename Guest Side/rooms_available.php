@@ -70,7 +70,7 @@ if (isset($_POST['submit']))    {
                     <li><a href='index.html'>Home</a></li>
                     <li><a href='about.html'>About us</a></li>
                     <li><a href='rooms.php'>Rooms and Suites</a></li>
-                    <li><a href='services.html'>Services</a></li>
+                    <li><a href='#'>Services</a></li>
                   </ul>
                 </div>
               </div>
@@ -180,7 +180,7 @@ if (isset($_POST['submit']))    {
           <a href="about.html">About us</a>
           <a href="index.html">Book a room</a>
           <a href="rooms.php">Rooms and Suites</a>
-          <a href="services.html">Services</a>
+          <a href="#">Services</a>
         </div>
 
         <div class="footer-section">
