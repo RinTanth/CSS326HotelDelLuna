@@ -36,6 +36,8 @@ $TotalCost = $row['Price'] * ($days);
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>HotelDelLuna | Booking information</title>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="stylecontainers.css">
+      <link rel="stylesheet" href="stylecomponents.css">
   </head>
 
   <body>
@@ -80,9 +82,8 @@ $TotalCost = $row['Price'] * ($days);
         <div class="room-container-right">
             <h1><?php echo $row['Prefix'];?> <?php echo $row['Fname'];?> <?php echo $row['Lname'];?></h1>
             <h2>Email: <span><?php echo $row['Email'];?></span></h2>
-            <h2>Phone: <span><?php echo $row['Phone'];?></span></h2>
+            <h2>Phone: <span><?php echo $row['Telephone'];?></span></h2>
 
-            <h1 style="padding-top: 1em;"><?php echo $row['Name'];?>, <?php echo $row['Country'];?></h1>
             <h2 style="font-size: 25px; padding-bottom: 0.6em;"><?php echo $row['RoomName'];?> Room</h1>  <!-- Name of room type-->
             <h2>Guests: <span><?php echo $row['Adults'];?> Adults, <?php echo $row['Children'];?> Children</span></h2>
             <h2>Check-in: <span><?php echo $row['DateFrom'];?></span></h2>
@@ -91,6 +92,11 @@ $TotalCost = $row['Price'] * ($days);
             <h2>Amount due: <span>$<?php echo $TotalCost;?></span></h2>
         </div>
       </div>
+
+
+    <div style="text-align: center; padding: 2em;">
+      <button onclick="location.href='index.html'" class="button-norm button-yellow" style="z-index: 1; padding: 0.7em 3em 0.7em 3em; margin-top: 1.25em; margin-right: 10px; font-size: 20px;">Proceed</button>
+    </div>
 
 
       <div style="padding: 2em;"></div>

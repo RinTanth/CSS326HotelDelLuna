@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2021 at 01:51 PM
+-- Generation Time: Nov 20, 2021 at 05:16 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -22,6 +22,23 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `hoteldelluna` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `hoteldelluna`;
+
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getGuestBooking` (IN `bookingid` BIGINT)  BEGIN
+	SELECT guest.Fname, guest.Lname, guest.Prefix, guest.Telephone, guest.Email, roomtype.Name AS RoomName, roomtype.Price, booking.DateFrom, booking.DateTo, booking.Adults, booking.Children, 
+    roomtype.ImageLink
+	FROM booking, guest, roomtype, roomsbooked
+	WHERE booking.GuestID = guest.GuestID
+    	AND roomsbooked.BookingID = booking.BookingID
+    	AND roomsbooked.TypeID = roomtype.TypeID
+    	AND booking.BookingID = bookingID;
+
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -58,7 +75,8 @@ INSERT INTO `booking` (`BookingID`, `GuestID`, `PaymentID`, `DateFrom`, `DateTo`
 (9, 9, 9, '2021-11-13', '2021-11-16', 1, 0, '2021-11-07', 'BAGUETTE', NULL),
 (10, 10, 10, '2021-11-07', '2021-11-11', 2, 0, '2021-11-04', 'ECLAIR', NULL),
 (11, 11, 11, '2021-11-08', '2021-11-11', 2, 0, '2021-11-05', 'AUBONPAIN', NULL),
-(12, 12, 12, '2021-11-10', '2021-11-13', 2, 1, '2021-11-04', 'IMINPAIN', NULL);
+(12, 12, 12, '2021-11-10', '2021-11-13', 2, 1, '2021-11-04', 'IMINPAIN', NULL),
+(26, 31, 30, '2021-11-10', '2021-11-13', 1, 1, '2021-11-19', 'LIKEASOMEBODY', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,7 +110,8 @@ INSERT INTO `guest` (`GuestID`, `Fname`, `Lname`, `Prefix`, `Telephone`, `Email`
 (9, 'Burr', 'Ito', 'Mr.', '0155422782', 'burrito@g.siit.tu.ac.th', 'Mexico'),
 (10, 'Tar', 'Tare', 'Dr.', '1349293829', 'tatare@g.siit.tu.ac.th', 'France'),
 (11, 'Aglio', 'E. Olio', 'Mr.', '8478123901', 'aglio_olio@g.siit.tu.ac.th', 'Italy'),
-(12, 'Oui', 'Baguette', 'Mrs.', '8237818920', 'oui_baguette@g.siit.tu.ac.th', 'France');
+(12, 'Oui', 'Baguette', 'Mrs.', '8237818920', 'oui_baguette@g.siit.tu.ac.th', 'France'),
+(31, 'Charn', 'Arunkit', 'Mr.', '123456', 'charn.arunkit@gmail.com', 'Canada');
 
 -- --------------------------------------------------------
 
@@ -123,7 +142,8 @@ INSERT INTO `payment` (`PaymentID`, `Method`, `Status`, `Date`) VALUES
 (9, 'Bank Transfer', 1, NULL),
 (10, 'Crypto', 1, NULL),
 (11, 'Credit Card', 1, NULL),
-(12, 'My Soul', 1, NULL);
+(12, 'My Soul', 1, NULL),
+(30, 'Your Soul', 1, '2021-11-19');
 
 -- --------------------------------------------------------
 
@@ -192,7 +212,8 @@ INSERT INTO `roomsbooked` (`BookingID`, `RoomID`, `Status`, `TypeID`) VALUES
 (9, NULL, 0, 1),
 (10, 8, 1, 2),
 (11, 9, 1, 2),
-(12, 17, 1, 3);
+(12, 17, 1, 3),
+(26, NULL, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -251,7 +272,7 @@ CREATE TABLE `roomtype` (
 
 INSERT INTO `roomtype` (`TypeID`, `ServiceID`, `Name`, `Price`, `Description`, `MaxGuests`, `ImageLink`) VALUES
 (1, 1, 'Lonely Star', 50, 'All it takes is one star and you\'ll be mine', 1, 'images/room1.jpg'),
-(2, 2, 'Twin Stars', 70, 'It takes two to become one. Ha gayyyyyyyyyy', 2, 'images/room2.jpg'),
+(2, 2, 'Twin Stars', 70, 'It takes two to become one. ', 2, 'images/room2.jpg'),
 (3, 2, 'Gemini Star', 90, 'We shine together, like the moon and stars', 3, 'images/room3.jpg');
 
 -- --------------------------------------------------------
@@ -296,7 +317,7 @@ CREATE TABLE `staff` (
   `Email` text NOT NULL,
   `Position` varchar(40) NOT NULL,
   `Username` varchar(50) NOT NULL,
-  `Passwd` varchar(50) NOT NULL
+  `Passwd` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -304,8 +325,20 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`StaffID`, `Fname`, `Lname`, `Prefix`, `City`, `Province`, `Country`, `ZipCode`, `Telephone`, `Email`, `Position`, `Username`, `Passwd`) VALUES
-(1, 'Rinrada', 'Kid', 'Ms.', 'KK', 'KhonKaen', 'Thailand', '40000', '0809989514', 'galgal@gmail.com', 'Receptionist', 'galgal', '2001'),
-(2, 'Charn', 'Dino', 'Mr.', 'island', 'jurassic', 'dinoland', '696969', '0941981001', 'charnosaur@dino.com', 'Admin', 'charnar', '1234');
+(1, 'Rinrada', 'Kid', 'Ms.', 'KK', 'KhonKaen', 'Thailand', '40000', '0809989514', 'galgal@gmail.com', 'Receptionist', 'galgal', 'd0fb963ff976f9c37fc81fe03c21ea7b'),
+(2, 'Charn', 'Dino', 'Mr.', 'island', 'jurassic', 'dinoland', '696969', '0941981001', 'charnosaur@dino.com', 'Admin', 'charnar', '81dc9bdb52d04dc20036dbd8313ed055'),
+(3, 'Nut', 'Danny', 'Mr.', 'Bangkok', 'Bangkok', 'Thailand', '10201', '124124', 'nut.danny@lunadelhotel.com', 'Receptionist', 'nut', 'a0491eb77ad302615cb757d193d47c7e');
+
+--
+-- Triggers `staff`
+--
+DELIMITER $$
+CREATE TRIGGER `encryptPassword` BEFORE INSERT ON `staff` FOR EACH ROW BEGIN
+	SET NEW.Passwd = MD5(NEW.Passwd);
+
+END
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables
@@ -380,19 +413,19 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BookingID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `BookingID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-  MODIFY `GuestID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `GuestID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PaymentID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `PaymentID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `room`
@@ -422,7 +455,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `StaffID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `StaffID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

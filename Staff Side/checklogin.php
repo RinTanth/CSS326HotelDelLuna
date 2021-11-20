@@ -2,7 +2,7 @@
     $username = $_POST['username'];
     $passwd = $_POST['password'];
     require_once('connect.php');
-    $q="select * from staff where Username='".$username."'and Passwd='".$passwd."'";
+    $q="select * from staff where Username='".$username."'and Passwd = MD5('$passwd')";
 
     $result = $mysqli -> query($q);
     if (!$result) {
