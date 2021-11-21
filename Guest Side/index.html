@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+
+<html>
+  <!-- Head of the page -->
+  <head>
+      <link rel="stylesheet" href="icon-css/all.min.css">
+      <link rel="stylesheet" href="icon-css/fontawesome.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+      <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet"> -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Hotel Del Luna | Home</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="stylecomponents.css">
+      <link rel="stylesheet" href="stylecontainers.css">
+  </head>
+
+  <body>
+    <!-- Fixed navigation bar -->
+      <div class="navbar">
+        <!-- Top left icon -->
+        <a href="index.html" style="text-decoration: none;">
+          <h1 class="logo">Hotel Del Luna</h1>
+        </a>
+
+        <!-- Top right hamburger menu -->
+        <div class=menu-wrap>
+            <input type="checkbox" class="toggler">
+            <div class="hamburger"><div></div></div>
+            <div class="menu">
+              <div>
+                <div>
+                  <ul>
+                    <li><a href='index.html'>Home</a></li>
+                    <li><a href='about.html'>About us</a></li>
+                    <li><a href='rooms.php'>Rooms and Suites</a></li>
+                    <li><a href='#'>Services</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    <!-- Home screen image and text -->
+      <div class="background-splash" style="background-image: url(images/cover1.jpg)">
+        <h1>To the Moon and back</h1>
+      </div>
+    <!-- End of Home screen image and text container -->
+
+    <div class="form-availability">
+      <form action="rooms_available.php" method="post">
+
+        <span class="form-block">
+          <label for="checkin" style="display:block;">Check In</label>
+          <input type="date" name="checkin" required>
+        </span>
+
+        <span class="form-block">
+          <label for="checkout" style="display:block;">Check Out</label>
+          <input type="date" name="checkout" required>
+        </span>
+
+        <span class="form-block">
+          <label for="adults" style="display:block;">Adults</label>
+          <select id="adults" name="adults" required>
+            <option hidden selected></option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+          </select>
+        </span>
+
+        <span class="form-block">
+          <label for="children" style="display:block;">Children</label>
+          <select id="children" name="children">
+            <option hidden selected></option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+          </select>
+        </span>
+
+        <span class="form-block">
+          <button class="button-norm button-yellow" type="submit" name="submit" style="font-size: 18px; z-index: 1;">Check availability</button>
+        </span>
+
+      </form>
+    </div>
+
+    <!-- First container -->
+      <div class="two-columns-container" style="padding-top: 12em;">
+        <div class="even-column even-column-config-1">
+          <h1>Welcome!</h1>
+          <p>There are a million stars in the sky, but our eyes always falls on the moon first.
+          <br><br>Just like there are a billion people in this world but our eyes only fall for one and only “you”.</p>
+          <div style="margin-left: 15%; margin-top: 3em;">
+            <a href="about.html" class="button button-yellow">Learn more</a>
+          </div>
+        </div>
+
+        <div class="even-column">
+          <div class="image-column" style="background-image: url(images/home1.jpg)"></div>
+        </div>
+      </div>
+    <!-- End of First container -->
+
+    <!-- Second container -->
+      <div class="plain-container" style="background-color: var(--dark_blue)">
+        <h1 class="heading-font">Rooms and Suites</h1>
+        <p>Every star has its unique identity in the starry sky.<br>Same as every person is special in their own way</p>
+        <div class="two-columns-container" style="background-color: var(--dark_blue); padding-bottom: 0;">
+          <div class="even-column">
+            <div class="image-plain-column" style="background-image: url('images/room1.jpg')"></div>
+          </div>
+
+          <div class="even-column">
+            <div class="image-plain-column image-plain-column-res" style="background-image: url('images/room3.jpg')"></div>
+          </div>
+        </div>
+      </div>
+    <!-- End of Second container -->
+
+
+    <!-- Top Footer container  -->
+    <div class="container-top-footer" style="background-image: url('images/banner.jpg')">
+      <h1>The stars await you!</h1>
+      <a href="#top" class="button button-yellow">Reserve now</a>
+    </div>
+    <!-- End of Top Footer container -->
+
+
+    <!-- Bottom Footer container -->
+    <div class="container-bottom-footer">
+      <div class="footer-section">
+        <a href="about.html">About us</a>
+        <a href="index.html">Book a room</a>
+        <a href="rooms.php">Rooms and Suites</a>
+        <a href="#">Services</a>
+      </div>
+
+      <div class="footer-section">
+        <div class="footer-information">
+          <i style="font-size:25px; color:var(--star_yellow);" class='fas fa-map-marker-alt'></i>
+          <h1 style="margin-top: 17px; margin-left: 5px;">Main Headquarters</h1>
+          <h2>28-5 Donhwamun-ro 11-gil, Jongno-gu</h2>
+        </div>
+
+        <div class="footer-information">
+          <i style="font-size:25px; color:var(--star_yellow);" class='fas fa-envelope-open'></i>
+          <h1 style="margin-top: 17px">Email</h1>
+          <h2>support@lunadelhotel.org</h2>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <div class="footer-information">
+          <i style="font-size:25px; color:var(--star_yellow);" class='fas fa-phone'></i>
+          <h1 style="margin-top: 17px">Phone</h1>
+          <h2>02-420-6969</h2>
+        </div>
+      </div>
+    </div>
+    <!-- End of Bottom Footer container -->
+
+  </body>
+</html>

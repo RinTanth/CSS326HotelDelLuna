@@ -1,0 +1,507 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark_blue)
+
+}
+
+html {
+  overflow-x: hidden;
+}
+
+canvas  {
+  z-index: -1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  color: var(--dark_blue);
+
+}
+
+h1 {
+  font-size: 28px;
+}
+
+.heading-font {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  margin: auto;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+:root {
+  /* --cream: #FAE9CF;
+  --light_brown: #CDA67A;
+  --brown: #986544;
+  --dark_coffee_brown: #6A462F;
+  --dark_oak_brown: #4A3120; */
+  --cream: #7d9aad;
+  --light_brown: #CDA67A;
+  --brown: #986544;
+  --dark_oak_brown: #4A3120;
+  --dark_blue: #001E33;
+  --star_yellow: #E9D086;
+  --metal_blue: #95AAB9;
+}
+
+
+/* CSS FOR HOME PAGE (MAY BE REUSED FOR OTHER PAGES) */
+/* Navbar style */
+
+.navbar {
+  top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #001E33;
+  width: 100%;
+  height: 80px;
+  z-index: 10;
+
+}
+
+.logo {
+  flex: 1 1 auto;
+  margin-left: 40px;
+  margin-top: 22px;
+  letter-spacing: 0.5px;
+  font-size: 28px;
+  font-family: Cambria;
+  font-weight: bold;
+  color: var(--star_yellow);
+  text-decoration: none;
+  z-index: 9;
+}
+
+
+/* Hamburger menu style */
+.menu-wrap  {
+  position: fixed;
+  top: 10px;
+  right: 25px;
+  z-index: 11;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 12;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+
+  background: #001E33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: var(--star_yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+  content: '';
+  position: absolute;
+  z-index: 11;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.menu-wrap .hamburger > div:after {
+  top: 10px;
+
+}
+
+/* Toggler animation */
+.menu-wrap .toggler:checked + .hamburger > div  {
+  transform: rotate(135deg);
+}
+
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+.menu-wrap .toggler:checked:hover + .hamburger > div  {
+  transform: rotate(225deg);
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: rgba(24, 39, 51, 0.95);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: white;
+  font-size: 2.0rem;
+  padding: 2rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a  {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 0.75s;
+}
+
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* End of Hamburger menu style */
+
+/* Container Bottom Footer Style */
+.container-bottom-footer {
+  display: table;
+  padding: 4em;
+  grid-template: 1fr 1fr 1fr;
+  table-layout: fixed;
+  width: 100%;
+  background-color: var(--dark_blue);
+}
+
+.footer-section  {
+  display: table-cell;
+}
+
+
+.footer-section > a {
+  padding-left: 100px;
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 25px;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+}
+
+.footer-information {
+  padding-left: 100px;
+  display: inline-block;
+  position: relative;
+  top: 28px;
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+.footer-information > i {
+  display: inline;
+}
+
+.footer-information > h1 {
+  display: inline;
+  color: white;
+  font-size: 25px;
+  padding-left: 10px;
+}
+
+.footer-information > h2 {
+  padding-left: 40px;
+  color: white;
+  font-size: 20px;
+}
+
+@media (max-width: 1500px) {
+  .footer-section {
+    display: block;
+  }
+}
+/* End of Container Bottom Footer Style */
+
+
+/* Start of Background Splash Container */
+.background-splash  {
+  margin-top: 80px;
+  height: 800px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: black;
+  text-align: center;
+
+}
+
+.background-splash > h1 {
+  position: relative;
+  top: 30%;
+  color: white;
+  font-size: 65px;
+}
+
+
+.background-splash > h2 {
+  position: relative;
+  top: 30%;
+  color: white;
+  font-size: 40px;
+}
+
+/* End of Background Splash Container */
+
+
+/* Start of Large Containers */
+.plain-container  {
+  padding-top: 6em;
+ /*WIP*/
+}
+
+
+
+/* End of Large Containers */
+
+
+/* Start of Hotels List Container */
+.hotels-list  {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  width: 100%;
+}
+
+.country-container  {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-top: 2px solid var(--brown);
+  padding: 1em;
+}
+
+.country-container > h1 {
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--dark_blue);
+}
+
+.country-hotels > a {
+  text-decoration: none;
+  color: var(--dark_blue);
+  font-size: 25px;
+  padding-right: 40px;
+  font-weight: 300;
+}
+/* End of Hotels List Container */
+
+
+
+
+/* Hotel branch room showcase */
+.room-showcase-container, .profile-showcase-container {
+  width: 100%;
+  background-color: var(--cream);
+}
+
+.room-showcase-container > h1 {
+  text-align: center;
+  padding: 2em;
+  font-size: 40px;
+  font-weight: normal;
+
+}
+
+.room-showcase-grid {
+  display: grid;
+  grid-gap: 0.5em;
+  grid-row-gap: 1em;
+  padding-bottom: 4em;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+}
+
+.room-showcase  {
+  width: 550px;
+  height: 600px;
+  border-radius: 10px;
+  justify-self: center;
+
+}
+
+.room-showcase-image {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.room-showcase > h1 {
+  margin-top: 10px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.room-showcase > h2 {
+  text-align: center;
+}
+
+.hotel-info-bar {
+  display: grid;
+  grid-row-gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  background-color: var(--dark_blue);
+}
+
+.hotel-info-section {
+  justify-self: center;
+}
+
+
+.hotel-information {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding: 1em;
+}
+
+.hotel-information > i {
+  display: inline;
+}
+
+.hotel-information > h1 {
+  display: inline;
+  color: white;
+  font-size: 25px;
+  padding-left: 10px;
+}
+
+.hotel-information > h2 {
+  padding-left: 40px;
+  color: white;
+  font-size: 20px;
+}
+
+
+/* End of Hotel branch room showcase */
+
+/* Start of Profile Showcase */
+.profile-showcase-container > h1 {
+  text-align: center;
+  padding: 2em;
+  font-size: 40px;
+  font-weight: normal;
+
+}
+
+.profile-showcase-grid {
+  display: grid;
+  grid-row-gap: 1em;
+  padding-bottom: 4em;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+
+.profile-showcase  {
+  width: 400px;
+  height: 600px;
+  background-color: transparent;
+  border-radius: 10px;
+  justify-self: center;
+  /*box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.1);*/
+
+}
+
+
+.profile-showcase > h1 {
+  margin-top: 10px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.profile-showcase > h2 {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  font-weight: normal;
+  font-size: 25px;
+}
+
+
+.profile-showcase-image {
+  position: relative;
+  width: 90%;
+  height: 45%;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+
+/* End Start of Profile Showcase */

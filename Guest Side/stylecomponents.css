@@ -1,0 +1,96 @@
+/* Components (Buttons and etc) */
+
+/* This button is for the a tag */
+.button:link, .button:visited {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 1em 3em 1em 3em;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.button-yellow {
+    background-color: var(--star_yellow);
+    color: #fff;
+}
+
+.button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.button-white::after {
+    background-color: #fff;
+}
+
+.button-yellow::after {
+    background-color: var(--star_yellow);
+}
+
+.button:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+/* This button is for the button tag */
+.button-norm {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 0.75em 2em 0.75em 2em;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    border: none;
+    cursor: pointer;
+}
+
+.button-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.button-yellow {
+    background-color: var(--star_yellow);
+    color: #fff;
+}
+
+/* END of Components (Buttons and etc) */

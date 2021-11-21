@@ -1,0 +1,302 @@
+/* START OF Simple Plain Container */
+.plain-container {
+  padding-top: 6em;
+  padding-bottom: 6em;
+  width: 100%;
+  background-color: var(--metal_blue);
+  text-align: center;
+}
+
+
+.plain-container > p{
+  padding-top: 1em;
+  font-size: 22px;
+  font-weight: normal;
+  color: white;
+
+}
+
+
+.image-plain-column {
+  position: relative;
+  height: 600px;
+  width: 85%;
+  margin: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+
+/* END OF Simple Plain Container */
+
+
+/* START OF Two Column Container (Responsive) */
+.two-columns-container  {
+  display: flex;
+  flex-direction: row;
+  padding-top: 6em;
+  padding-bottom: 6em;
+  width: 100%;
+  background-color: var(--metal_blue);
+}
+
+.even-column  {
+  flex: 50%;
+}
+
+.image-column  {
+  position: relative;
+  height: 600px;
+  width: 85%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.even-column-config-1 > h1 {
+  margin-left: 15%;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+.even-column-config-1 > p {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 1em;
+  font-size: 22px;
+  font-weight: normal;
+  color: white;
+}
+
+
+@media (max-width: 800px) {
+
+  .two-columns-container {
+    flex-direction: column;
+  }
+
+  .image-plain-column-res {
+    margin-top: 10px;
+  }
+
+  .image-column {
+    margin: auto;
+    margin-top: 100px;
+    justify-content: center;
+  }
+}
+
+/* END OF Two Column Container */
+.container-top-footer {
+  width: 100%;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  text-align: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.container-top-footer > h1 {
+  position: relative;
+  display: inline-block;
+  margin-right: 40%;
+  top: 35%;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 35px;
+
+}
+
+.container-top-footer > a {
+  top: 35%;
+  position: relative;
+  font-size: 20px;
+
+}
+
+/* START OF Top Footer Container */
+
+
+/* END OF Top Footer Container (Responsive) */
+
+/* START OF Form Containers */
+.form-availability  {
+  padding: 1em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  background-color: var(--metal_blue);
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form-block {
+  display: inline-block;
+  padding: 15px;
+  text-align: left;
+}
+
+.form-block > label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+
+.form-block > input[type=date] {
+  padding: 10px 30px;
+  font-size: 18px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.form-block > select {
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+  color: black;
+  border-radius: 5px;
+}
+/* END OF Form containers */
+
+
+
+/* Hotel Room Container */
+.room-table  {
+  position: relative;
+  top: -200px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.room-container, .room-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 65%;
+  border: white var(--metal_blue) 2px;
+  margin-bottom: 1em;
+  background-color: var(--metal_blue);
+  border-radius: 10px;
+  box-shadow: 0 0px 60px 0 rgba(0, 0, 0, 0.3);
+}
+
+.room-container-right > h1 {
+  font-weight: bold;
+}
+
+.room-container-right > h2 {
+  font-weight: normal;
+  padding-top: 0.2em;
+}
+
+.room-form-container {
+  width: 80%;
+}
+
+.room-container-left, .room-form-left {
+  flex: 40%;
+  padding: 2em;
+}
+
+.room-container-right, .room-form-right  {
+  flex: 60%;
+  padding: 2em;
+}
+
+.room-image  {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.service-icon-container  {
+  position: relative;
+  padding-top: 1em;
+}
+
+.service-icon-container > i, span {
+  color: var(--dark_blue);
+  font-size: 22px;
+
+}
+
+.room-form-left > h2 > span {
+  color: var(--dark_blue);
+}
+
+.room-form-right > form > h1 {
+
+}
+
+.room-form-right > form > select {
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+  border: none;
+}
+
+.room-form-right > form > textarea {
+  padding: 10px 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  border: none;
+}
+
+.room-form-right > form > input {
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+  border: none;
+}
+
+.room-form-right > form > div > input {
+  margin-right: 10px;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+  border: none;
+}
+
+div#bankmethod > label {
+  font-size: 18px;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 2.5px;
+  background: white;
+}
+
+input#bankslip {
+  display: none;
+}
+
+.room-container-right > h2 > span {
+  color: var(--dark_blue);
+}
+
+
+@media (max-width: 1400px)  {
+  .room-container-left, .room-container-right{
+    flex: 100%;
+  }
+}
+
+.room-container-right > p {
+  padding-top: 1em;
+  font-size: 20px;
+}
+/* End of Hotel Room Container for booking */
