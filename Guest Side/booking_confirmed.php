@@ -30,7 +30,7 @@ $TotalCost = $price * ($days);
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>HotelDelLuna | Booking information</title>
+      <title>Hotel Del Luna | Booking confirmed</title>
       <link rel="stylesheet" href="style.css">
       <link rel="stylesheet" href="stylecomponents.css">
       <link rel="stylesheet" href="stylecontainers.css">

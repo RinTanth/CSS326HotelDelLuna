@@ -12,6 +12,8 @@ if (isset($_POST['submit']))  {
   $_SESSION['price'] = $_POST['price'];
   $_SESSION['roomname'] = $_POST['roomname'];
   $_SESSION['imagelink'] = $_POST['imagelink'];
+  $_SESSION['discount'] = $_POST['discount'];
+  $_SESSION['extrainfo'] = $_POST['extrainfo'];
 
   //Guest information SESSION from guest_information.php
   $_SESSION['prefix'] = $_POST['prefix'];
@@ -41,9 +43,21 @@ $lname = $_SESSION['lname'];
 $email = $_SESSION['email'];
 $phonenum = $_SESSION['phonenum'];
 $country = $_SESSION['country'];
+$discount = $_SESSION['discount'];
+$extrainfo = $_SESSION['extrainfo'];
 
 $method = $_SESSION['method'];
 
+if ($discount == "")  {
+  $discount = NULL;
+}
+
+if ($extrainfo == "")  {
+  $extrainfo = NULL;
+}
+
+//clean up extra info (replace the ' with a \' to prevent error on insert)
+$extrainfo = str_replace("'", "\'", $extrainfo);
 
 if ($_SESSION['method'] == "Kidney") {
   $paymentstatus = 0;
@@ -101,8 +115,8 @@ $pid = $fetchpid['PaymentID']; // use this as PaymentID
 
 
 // insert data to booking table
-$q5="INSERT INTO booking(GuestID, PaymentID, DateFrom, DateTo, Adults, Children, ReserveDate, DiscountCode)
-VALUES ('$gid', '$pid', '$checkin', '$checkout', '$adults', '$children', CURRENT_TIMESTAMP, 'LIKEASOMEBODY')";
+$q5="INSERT INTO booking(GuestID, PaymentID, DateFrom, DateTo, Adults, Children, ReserveDate, DiscountCode, ExtraInfo)
+VALUES ('$gid', '$pid', '$checkin', '$checkout', '$adults', '$children', CURRENT_TIMESTAMP, '$discount', '$extrainfo')";
 
 $result5 = $mysqli -> query($q5);
 if(!$result5) {
