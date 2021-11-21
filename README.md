@@ -1,5 +1,5 @@
 # Moon Themed Hotel
-Moon Hotel website project
+Moon Hotel Database System Project
 
 
 Function | HTML+CSS | PHP | MySQL |
