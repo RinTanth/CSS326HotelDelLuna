@@ -14,7 +14,7 @@ View Guest Info | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 
 # Stored Procedures and Triggers
-- getGuestBooking(BIGINT BookingID): returns information from the given bookingID
+- getGuestBooking(BIGINT BookingID): returns booking information from the given bookingID
 - encryptPassword: automatically encrypts the password when INSERT ONTO the staff table
 
 
