@@ -13,9 +13,9 @@ Guest List | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 View Guest Info | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 
-Stored Procedures and Triggers
-getGuestBooking(BIGINT BookingID): returns information from the given bookingID
-encryptPassword: automatically encrypts the password when INSERT ONTO the staff table
+# Stored Procedures and Triggers
+- getGuestBooking(BIGINT BookingID): returns information from the given bookingID
+- encryptPassword: automatically encrypts the password when INSERT ONTO the staff table
 
 
 Service Page
