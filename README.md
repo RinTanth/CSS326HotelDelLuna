@@ -1,5 +1,5 @@
-# Moon Themed Hotel
-Moon Hotel website project
+# Moon Hotel Database System Project
+#MoonHotel
 
 
 Function | HTML+CSS | PHP | MySQL |
@@ -13,10 +13,10 @@ Guest List | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 View Guest Info | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 
 
-Stored Procedures and Triggers
-getGuestBooking(BIGINT BookingID): returns information from the given bookingID
-encryptPassword: automatically encrypts the password when INSERT ONTO the staff table
+# Stored Procedures and Triggers
+- getGuestBooking(BIGINT BookingID): returns booking information from the given bookingID
+- encryptPassword: automatically encrypts the password when INSERT ONTO the staff table
 
 
-Service Page
-cannot press 'back' on page filling guest info
+# Important Notes
+- You must click proceed after check-in or check-out otherwise changes won't be made :(
