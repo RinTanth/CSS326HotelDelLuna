@@ -1,4 +1,4 @@
-# Moon Hotel
+# Moon Themed Hotel
 Moon Hotel website project
 
 
