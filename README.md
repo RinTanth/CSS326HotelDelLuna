@@ -18,5 +18,5 @@ View Guest Info | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 - encryptPassword: automatically encrypts the password when INSERT ONTO the staff table
 
 
-Service Page
-cannot press 'back' on page filling guest info
+# Important Notes
+- You must click proceed after you check-in or check-out a guest, otherwise it won't change anything in the database :(
